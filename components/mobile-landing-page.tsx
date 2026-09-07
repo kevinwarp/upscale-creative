@@ -11,7 +11,7 @@ function H2({ children, light = false }: { children: React.ReactNode; light?: bo
   return <h2 className={`mt-2 font-[family-name:var(--font-display)] text-[28px] font-semibold leading-[1.08] tracking-[-0.02em] ${light ? "text-white" : "text-[#021a20]"}`}>{children}</h2>;
 }
 function Rail({ children, ariaLabel }: { children: React.ReactNode; ariaLabel: string }) {
-  return <div className="-mx-4 mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label={ariaLabel}>{children}</div>;
+  return <div className="-mx-4 mt-5 flex snap-x snap-mandatory items-start gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label={ariaLabel}>{children}</div>;
 }
 function Cta({ href, children, ghost = false, light = false, block = false }: { href: string; children: React.ReactNode; ghost?: boolean; light?: boolean; block?: boolean }) {
   const base = "inline-flex items-center justify-center rounded-xl px-5 py-3.5 text-[15px] font-semibold transition";
