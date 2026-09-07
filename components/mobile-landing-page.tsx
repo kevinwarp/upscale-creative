@@ -76,7 +76,7 @@ export function MobileLandingPage({ n }: { n: number }) {
           <div className="mt-5 grid grid-cols-4 items-center gap-x-4 gap-y-3 opacity-80">
             {applovinLogos.slice(0, 8).map((l) => <img key={l.name} alt={l.name} className="mx-auto h-5 w-auto max-w-full object-contain" loading="lazy" src={l.src} />)}
           </div>
-          <p className="mt-2 text-center font-mono text-[10px] text-[#64758b]">Brands in AppLovin's own case studies.</p>
+          <p className="mt-2 text-center font-mono text-[10px] text-[#64758b]">Brands in AppLovin’s own case studies.</p>
           <div className="mt-6 rounded-2xl bg-[#021a20] p-5 text-white">
             <p className="text-[15px] font-semibold leading-6">Winning on AppLovin takes more than moving budget to a new platform. It is a different ad experience for the consumer, part TV, part social, part mobile game.</p>
             <p className="mt-2 text-[14px] leading-6 text-white/75">You need a steady pipeline of unique creative, and a way to understand what is actually driving performance.</p>
@@ -123,7 +123,7 @@ export function MobileLandingPage({ n }: { n: number }) {
               </article>
             ))}
           </div>
-          <div className="mt-5 rounded-2xl border-l-4 border-[#831f80] bg-[#f0eafe] p-4 text-[14px] leading-6"><strong>We don't stop at recommendations.</strong> An AI Editor and our human editors make the ads, and you approve every brief and every finished creative before it goes live.</div>
+          <div className="mt-5 rounded-2xl border-l-4 border-[#831f80] bg-[#f0eafe] p-4 text-[14px] leading-6"><strong>We don’t stop at recommendations.</strong> An AI Editor and our human editors make the ads, and you approve every brief and every finished creative before it goes live.</div>
           <Kicker>Inside the platform</Kicker>
           <Rail ariaLabel="Product screenshots">
             {shots.map((s) => (
@@ -243,7 +243,7 @@ export function MobileLandingPage({ n }: { n: number }) {
               </a>
             ))}
           </div>
-          <p className="mt-3 text-[13px] text-[#64758b]"><strong className="text-[#021a20]">What you bring:</strong> your brand's site and your AppLovin account, or the intent to open one.</p>
+          <p className="mt-3 text-[13px] text-[#64758b]"><strong className="text-[#021a20]">What you bring:</strong> your brand’s site and your AppLovin account, or the intent to open one.</p>
         </div>
       </section>
 
@@ -272,7 +272,7 @@ export function MobileLandingPage({ n }: { n: number }) {
         </div>
         <footer className="mx-auto mt-8 max-w-[480px] text-center text-[11px] leading-5 text-[#64758b]">
           <img alt="Upscale" className="mx-auto mb-2 h-5 w-auto" src="/customer-assets/upscale-wordmark.svg" width="136" height="35" />
-          © 2026 Upscale AI. Creative OS for AppLovin is Upscale's AI Creative Strategist. AppLovin is a trademark of its owner; Upscale is an independent creative partner. Platform statistics cited to AppLovin.
+          © 2026 Upscale AI. Creative OS for AppLovin is Upscale’s AI Creative Strategist. AppLovin is a trademark of its owner; Upscale is an independent creative partner. Platform statistics cited to AppLovin.
           <p className="mt-1 font-mono text-[10px]">Mobile landing page {n} · {v.name}</p>
         </footer>
       </section>
