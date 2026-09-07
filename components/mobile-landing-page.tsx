@@ -1,135 +1,163 @@
 import { MobileVideoCard } from "@/components/mobile-video-card";
-import { MEDIA, agents, applovinLogos, calendar, caseStudy, faq, getVariant, links, offer, paths, platformStats, pricing, promise, quotes, sequence, shots, showcase } from "@/content/mobile-landing-pages";
+import { MEDIA, agents, applovinLogos, calendar, caseStudy, compare, faq, getVariant, heroRisk, heroValue, heroWhat, links, offer, paths, platformStats, pricing, process, promise, quotes, riskFree, sequence, shots, showcase } from "@/content/mobile-landing-pages";
 
+export type Theme = "light" | "dark";
 const P = "#831f80"; // brand purple
 
-function Kicker({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
-  return <p className={`font-mono text-[11px] font-semibold uppercase tracking-[0.12em] ${light ? "text-[#c9a3e0]" : "text-[#831f80]"}`}>{children}</p>;
-}
-function H2({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
-  return <h2 className={`mt-2 font-[family-name:var(--font-display)] text-[28px] font-semibold leading-[1.08] tracking-[-0.02em] ${light ? "text-white" : "text-[#021a20]"}`}>{children}</h2>;
-}
-function Rail({ children, ariaLabel }: { children: React.ReactNode; ariaLabel: string }) {
-  return <div className="-mx-4 mt-5 flex snap-x snap-mandatory items-start gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label={ariaLabel}>{children}</div>;
-}
-function Cta({ href, children, ghost = false, light = false, block = false }: { href: string; children: React.ReactNode; ghost?: boolean; light?: boolean; block?: boolean }) {
-  const base = "inline-flex items-center justify-center rounded-xl px-5 py-3.5 text-[15px] font-semibold transition";
-  const style = ghost ? (light ? "border border-white/35 text-white" : "border border-[#021a20]/20 text-[#021a20]") : "bg-[#831f80] text-white shadow-[0_8px_24px_-12px_rgba(131,31,128,0.8)]";
-  return <a className={`${base} ${style} ${block ? "w-full" : ""}`} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">{children}</a>;
-}
+// Theme tokens: light = homepage paper; dark = homepage brand black.
+const themes = {
+  light: { page: "bg-[#f8fafc] text-[#021a20]", alt: "bg-white", muted: "text-[#64758b]", card: "bg-white border-[#e2e8f0]", tint: "bg-[#f0eafe]", line: "border-[#e2e8f0]", kicker: "text-[#831f80]", chip: "bg-[#f1f5f9]", ghost: "border border-[#021a20]/20 text-[#021a20]", header: "bg-[#f8fafc]/90 border-[#e2e8f0]", bar: "bg-white/95 border-[#e2e8f0]", grid: "#e2e8f0", inverse: "bg-[#021a20] text-white", thead: "bg-[#f8fafc]", low: "#94a3b8" },
+  dark: { page: "bg-[#021a20] text-white", alt: "bg-[#06232b]", muted: "text-white/65", card: "bg-white/[0.06] border-white/12", tint: "bg-white/[0.08]", line: "border-white/12", kicker: "text-[#c9a3e0]", chip: "bg-white/10", ghost: "border border-white/35 text-white", header: "bg-[#021a20]/90 border-white/10", bar: "bg-[#021a20]/95 border-white/10", grid: "rgba(255,255,255,0.14)", inverse: "bg-[#f0eafe] text-[#021a20]", thead: "bg-[#021a20]", low: "#64758b" },
+} as const;
 
-export function MobileLandingPage({ n }: { n: number }) {
+type T = (typeof themes)[Theme];
+const Kicker = ({ children, t }: { children: React.ReactNode; t: T }) => <p className={`font-mono text-[11px] font-semibold uppercase tracking-[0.12em] ${t.kicker}`}>{children}</p>;
+const H2 = ({ children }: { children: React.ReactNode }) => <h2 className="mt-2 font-[family-name:var(--font-display)] text-[28px] font-semibold leading-[1.08] tracking-[-0.02em]">{children}</h2>;
+const Rail = ({ children, ariaLabel }: { children: React.ReactNode; ariaLabel: string }) => <div className="-mx-4 mt-5 flex snap-x snap-mandatory items-start gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label={ariaLabel}>{children}</div>;
+const Cta = ({ href, children, ghost = false, t }: { href: string; children: React.ReactNode; ghost?: boolean; t: T }) => (
+  <a className={`inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-4 text-[17px] font-semibold ${ghost ? t.ghost : "bg-[#831f80] text-white shadow-[0_10px_28px_-14px_rgba(131,31,128,0.9)]"}`} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">{children}</a>
+);
+const Card = ({ children, className = "", t }: { children: React.ReactNode; className?: string; t: T }) => <div className={`rounded-2xl border ${t.card} ${className}`}>{children}</div>;
+
+export function MobileLandingPage({ n, theme = "light" }: { n: number; theme?: Theme }) {
   const v = getVariant(n);
+  const t = themes[theme];
+  const dark = theme === "dark";
+  const second = showcase.find((c) => c.slug !== v.lead.slug)!;
   const X = (d: number) => 20 + (d / 68) * 260;
   const Y = (p: number) => 110 - (p / 100) * 96;
   const line = caseStudy.share.map(([d, p], i) => `${i ? "L" : "M"}${X(d).toFixed(1)} ${Y(p).toFixed(1)}`).join(" ");
-
   return (
-    <main className="min-h-screen bg-[#f8fafc] font-[family-name:var(--font-body)] text-[#021a20] antialiased">
+    <main className={`min-h-screen font-[family-name:var(--font-body)] antialiased ${t.page}`}>
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-[#e2e8f0] bg-[#f8fafc]/90 backdrop-blur">
+      <header className={`sticky top-0 z-40 border-b backdrop-blur ${t.header}`}>
         <div className="mx-auto flex max-w-[480px] items-center justify-between px-4 py-3">
-          <a href="#top" aria-label="Upscale"><img alt="Upscale" className="h-6 w-auto" src="/customer-assets/upscale-wordmark.svg" width="136" height="35" /></a>
-          <span className="hidden rounded-full bg-[#f0eafe] px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-[#831f80] min-[380px]:inline">Creative OS for AppLovin</span>
+          <a href="#top" aria-label="Upscale"><img alt="Upscale" className={`h-6 w-auto ${dark ? "brightness-0 invert" : ""}`} src="/customer-assets/upscale-wordmark.svg" width="136" height="35" /></a>
+          <span className={`hidden rounded-full px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] ${t.tint} ${t.kicker} min-[380px]:inline`}>Creative OS for AppLovin</span>
           <a className="rounded-lg bg-[#831f80] px-3.5 py-2 text-[13px] font-semibold text-white" href={links.onboarding} target="_blank" rel="noopener noreferrer">Get started</a>
         </div>
       </header>
 
-      {/* Hero */}
-      <section id="top" className="bg-[radial-gradient(120%_80%_at_80%_0%,#3b1a4a_0%,#1a1030_45%,#021a20_100%)] px-4 pb-8 pt-8 text-white">
+      {/* Hero, Icon format: H1, value line, what, risk, stacked CTAs, two proof cards, two creatives */}
+      <section id="top" className="px-4 pb-6 pt-7">
         <div className="mx-auto max-w-[480px]">
-          <Kicker light>{v.kicker}</Kicker>
-          <h1 className="mt-2 font-[family-name:var(--font-display)] text-[36px] font-semibold leading-[1.02] tracking-[-0.03em]">{v.headline}</h1>
-          {n !== 1 && <p className="mt-3 text-[15px] font-medium text-[#c9a3e0]">{promise}</p>}
-          <p className="mt-3 text-[15px] leading-6 text-white/80">{v.sub}</p>
-          <div className="mt-4 rounded-xl border border-white/15 bg-white/[0.07] p-3.5 text-[14px] font-semibold leading-5">{offer}</div>
-          <div className="mt-4 grid grid-cols-2 gap-2.5">
-            <Cta href={links.onboarding} block>Get started</Cta>
-            <Cta href="#how" ghost light block>See how it works</Cta>
+          <Kicker t={t}>{v.kicker}</Kicker>
+          <h1 className="mt-1.5 font-[family-name:var(--font-display)] text-[40px] font-semibold leading-[1.0] tracking-[-0.03em]">{v.headline}</h1>
+          <p className="mt-4 text-[19px] font-medium leading-[1.3]">{heroValue}</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>{n === 1 ? heroWhat : v.sub}</p>
+          <p className={`mt-2 text-[15px] leading-6 ${t.muted}`}>{heroRisk}</p>
+          <div className="mt-5 grid gap-2.5">
+            <Cta t={t} href={links.onboarding}><span className="grid size-5 place-items-center rounded-full border-2 border-white/80"><span className="size-2 rounded-full bg-white" /></span>Get started free</Cta>
+            <Cta t={t} href={links.demo} ghost><svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3.5" /><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 8v6M14 11h6" /></svg>Book a demo</Cta>
           </div>
-          <div className="mt-6 grid grid-cols-[1fr_1fr] items-end gap-3">
-            <MobileVideoCard {...v.lead} />
-            <div className="grid gap-2">
-              {platformStats.slice(0, 3).map(([num, d]) => (
-                <div key={num} className="rounded-xl border border-white/12 bg-white/[0.06] p-3"><div className="font-[family-name:var(--font-display)] text-[22px] font-semibold leading-none">{num}</div><div className="mt-1 text-[11px] leading-4 text-white/65">{d}</div></div>
-              ))}
-              <p className="font-mono text-[9px] text-white/45">Source: AppLovin, 2026.</p>
-            </div>
+          <div className="mt-4 grid grid-cols-2 gap-3">
+            <Card t={t} className="p-3.5">
+              <div className="flex gap-1.5">{[`${MEDIA}/showcase-9x16/latico-leathers-1.jpg`, `${MEDIA}/showcase-9x16/latico-leathers-2.jpg`, `${MEDIA}/sequence/latico-video-poster.jpg`].map((s) => <img key={s} alt="" className="h-14 w-14 rounded-lg object-cover" loading="lazy" src={s} />)}</div>
+              <p className="mt-3 text-[17px] font-semibold">Case study</p>
+              <p className={`mt-1 text-[13px] leading-5 ${t.muted}`}>Latico Leathers: six batches, account CTR up 19%, and Upscale creative on 80%+ of daily AppLovin spend.</p>
+              <a className={`mt-3 inline-block text-[13px] font-semibold ${t.kicker}`} href="#case-study">Read the case study →</a>
+            </Card>
+            <Card t={t} className="p-3.5">
+              <div className="flex gap-1.5">{applovinLogos.slice(0, 3).map((l) => <span key={l.name} className="grid h-14 w-14 place-items-center rounded-lg bg-white p-2"><img alt={l.name} className="max-h-full max-w-full object-contain" loading="lazy" src={l.src} /></span>)}</div>
+              <p className="mt-3 text-[17px] font-semibold">Why AppLovin</p>
+              <p className={`mt-1 text-[13px] leading-5 ${t.muted}`}>Ridge, Caraway, Quince, Prose and Wayfair are scaling on AppLovin. 30s+ median screen time per impression.</p>
+              <a className={`mt-3 inline-block text-[13px] font-semibold ${t.kicker}`} href="#why">See the evidence →</a>
+            </Card>
+          </div>
+          <div className="mt-4 grid grid-cols-2 gap-3">
+            <MobileVideoCard {...v.lead} frame dark={dark} />
+            <MobileVideoCard {...second} frame dark={dark} />
           </div>
         </div>
       </section>
 
       {/* Why AppLovin */}
-      <section className="px-4 py-9">
+      <section id="why" className={`px-4 py-9 ${t.alt}`}>
         <div className="mx-auto max-w-[480px]">
-          <Kicker>Why AppLovin</Kicker>
+          <Kicker t={t}>Why AppLovin</Kicker>
           <H2>DTC brands are already scaling on AppLovin.</H2>
-          <p className="mt-3 text-[15px] leading-6 text-[#64758b]">Brands like Ridge, Caraway, Quince, Prose and Wayfair are using AppLovin to reach billions of consumers inside mobile games, and showing it can be a meaningful, scalable performance channel beyond Meta and Google.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Brands like Ridge, Caraway, Quince, Prose and Wayfair are using AppLovin to reach billions of consumers inside mobile games, and showing it can be a meaningful, scalable performance channel beyond Meta and Google.</p>
           <Rail ariaLabel="Operators on the record">
             {quotes.map((q) => (
-              <blockquote key={q.who} className="m-0 w-[82%] shrink-0 snap-start rounded-2xl border border-[#e2e8f0] bg-white p-4">
-                <p className="text-[15px] font-medium leading-6 text-[#021a20]">“{q.text}”</p>
-                <footer className="mt-3 flex flex-wrap items-center gap-2 text-[12px] text-[#64758b]"><span className="font-semibold text-[#021a20]">{q.who}</span><span className="rounded-full bg-[#f1f5f9] px-2 py-0.5 font-mono text-[10px]">{q.tag}</span></footer>
+              <blockquote key={q.who} className={`m-0 w-[82%] shrink-0 snap-start rounded-2xl border p-4 ${t.card}`}>
+                <p className="text-[15px] font-medium leading-6">“{q.text}”</p>
+                <footer className={`mt-3 flex flex-wrap items-center gap-2 text-[12px] ${t.muted}`}><span className="font-semibold">{q.who}</span><span className={`rounded-full px-2 py-0.5 font-mono text-[10px] ${t.chip}`}>{q.tag}</span></footer>
               </blockquote>
             ))}
           </Rail>
-          <div className="mt-5 grid grid-cols-4 items-center gap-x-4 gap-y-3 opacity-80">
+          <div className={`mt-5 grid grid-cols-4 items-center gap-x-4 gap-y-3 ${dark ? "rounded-xl bg-white p-3" : "opacity-80"}`}>
             {applovinLogos.slice(0, 8).map((l) => <img key={l.name} alt={l.name} className="mx-auto h-5 w-auto max-w-full object-contain" loading="lazy" src={l.src} />)}
           </div>
-          <p className="mt-2 text-center font-mono text-[10px] text-[#64758b]">Brands in AppLovin’s own case studies.</p>
-          <div className="mt-6 rounded-2xl bg-[#021a20] p-5 text-white">
+          <p className={`mt-2 text-center font-mono text-[10px] ${t.muted}`}>Brands in AppLovin’s own case studies.</p>
+          <div className="mt-5 grid grid-cols-4 gap-2">
+            {platformStats.map(([num, d]) => <div key={num} className={`rounded-xl border p-2.5 ${t.card}`}><div className="font-[family-name:var(--font-display)] text-[18px] font-semibold leading-none">{num}</div><div className={`mt-1 text-[10px] leading-[1.3] ${t.muted}`}>{d}</div></div>)}
+          </div>
+          <p className={`mt-1.5 font-mono text-[9px] ${t.muted}`}>Source: AppLovin, 2026. Top 1,000 videos by spend share.</p>
+          <div className={`mt-6 rounded-2xl p-5 ${t.inverse}`}>
             <p className="text-[15px] font-semibold leading-6">Winning on AppLovin takes more than moving budget to a new platform. It is a different ad experience for the consumer, part TV, part social, part mobile game.</p>
-            <p className="mt-2 text-[14px] leading-6 text-white/75">You need a steady pipeline of unique creative, and a way to understand what is actually driving performance.</p>
+            <p className="mt-2 text-[14px] leading-6 opacity-80">You need a steady pipeline of unique creative, and a way to understand what is actually driving performance.</p>
           </div>
         </div>
       </section>
 
       {/* The ad is a sequence */}
-      <section className="border-y border-[#e2e8f0] bg-white px-4 py-9">
+      <section className={`border-y px-4 py-9 ${t.line}`}>
         <div className="mx-auto max-w-[480px]">
-          <Kicker>How AppLovin ads work</Kicker>
+          <Kicker t={t}>How AppLovin ads work</Kicker>
           <H2>The ad is a sequence, not a clip.</H2>
-          <p className="mt-3 text-[15px] leading-6 text-[#64758b]">On AppLovin the ad sits between levels of a game, and you get 30 seconds or more across connected parts. Design one story: same product, same promise, same proof, same next action.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>On AppLovin the ad sits between levels of a game, and you get 30 seconds or more across connected parts. Design one story: same product, same promise, same proof, same next action.</p>
           <Rail ariaLabel="The AppLovin ad sequence">
-            {sequence.map(([t, d], i) => (
-              <div key={t} className="w-[70%] shrink-0 snap-start rounded-2xl border border-[#e2e8f0] bg-[#f8fafc] p-4">
+            {sequence.map(([tt, d], i) => (
+              <div key={tt} className={`w-[70%] shrink-0 snap-start rounded-2xl border p-4 ${t.card}`}>
                 {i === 1 && <img alt="Portrait video frame" className="mb-3 h-36 w-full rounded-lg object-cover" loading="lazy" src={`${MEDIA}/sequence/latico-video-poster.jpg`} />}
                 {i === 2 && <img alt="Playable frame" className="mb-3 h-36 w-full rounded-lg object-cover object-top" loading="lazy" src={`${MEDIA}/sequence/latico-playable.png`} />}
                 <span className="grid size-7 place-items-center rounded-full bg-[#831f80] font-mono text-[12px] font-semibold text-white">{i + 1}</span>
-                <h3 className="mt-2 text-[16px] font-semibold">{t}</h3>
-                <p className="mt-1 text-[13px] leading-5 text-[#64758b]">{d}</p>
+                <h3 className="mt-2 text-[16px] font-semibold">{tt}</h3>
+                <p className={`mt-1 text-[13px] leading-5 ${t.muted}`}>{d}</p>
               </div>
             ))}
           </Rail>
-          <p className="mt-3 text-[13px] text-[#64758b]">Try the full in-game experience with your own product page on <a className="font-semibold text-[#831f80]" href={links.playable} target="_blank" rel="noopener noreferrer">Playable DTC</a>. Free.</p>
+          <p className={`mt-3 text-[13px] ${t.muted}`}>Try the full in-game experience with your own product page on <a className={`font-semibold ${t.kicker}`} href={links.playable} target="_blank" rel="noopener noreferrer">Playable DTC</a>. Free.</p>
         </div>
       </section>
 
       {/* How it works */}
-      <section id="how" className="px-4 py-9">
+      <section id="how" className={`px-4 py-9 ${t.alt}`}>
         <div className="mx-auto max-w-[480px]">
-          <Kicker>How it works</Kicker>
+          <Kicker t={t}>How it works</Kicker>
           <H2>{promise}</H2>
-          <p className="mt-3 text-[15px] leading-6 text-[#64758b]">Two agents and one map. Then an AI Editor and our human editors make the ads.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Two agents and one map. Then an AI Editor and our human editors make the ads.</p>
           <div className="mt-5 grid gap-4">
             {agents.map((a, i) => (
-              <article key={a.badge} className="overflow-hidden rounded-2xl border border-[#e2e8f0] bg-white">
+              <article key={a.badge} className={`overflow-hidden rounded-2xl border ${t.card}`}>
                 <img alt={a.alt} className="h-44 w-full object-cover object-left-top" loading="lazy" src={a.shot} />
                 <div className="p-4">
-                  <div className="flex items-center gap-2"><span className="font-mono text-[12px] text-[#831f80]">0{i + 1}</span><span className="rounded-full border border-[#831f80]/25 bg-[#831f80]/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.05em] text-[#831f80]">{a.badge}</span></div>
+                  <div className="flex items-center gap-2"><span className={`font-mono text-[12px] ${t.kicker}`}>0{i + 1}</span><span className={`rounded-full border border-[#831f80]/30 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.05em] ${t.kicker} ${t.tint}`}>{a.badge}</span></div>
                   <h3 className="mt-2 font-[family-name:var(--font-display)] text-[20px] font-semibold leading-tight">{a.title}</h3>
-                  <p className="mt-2 text-[14px] leading-6 text-[#64758b]">{a.copy}</p>
+                  <p className={`mt-2 text-[14px] leading-6 ${t.muted}`}>{a.copy}</p>
                 </div>
               </article>
             ))}
           </div>
-          <div className="mt-5 rounded-2xl border-l-4 border-[#831f80] bg-[#f0eafe] p-4 text-[14px] leading-6"><strong>We don’t stop at recommendations.</strong> An AI Editor and our human editors make the ads, and you approve every brief and every finished creative before it goes live.</div>
-          <Kicker>Inside the platform</Kicker>
+          <div className={`mt-5 rounded-2xl border-l-4 border-[#831f80] p-4 text-[14px] leading-6 ${t.tint}`}><strong>We don’t stop at recommendations.</strong> An AI Editor and our human editors make the ads, and you approve every brief and every finished creative before it goes live.</div>
+          <div className="mt-8">
+            <Kicker t={t}>What happens next</Kicker>
+            <H2>From sign-up to your first four ads.</H2>
+            <ol className="mt-4 grid gap-0">
+              {process.map(([tt, d], i) => (
+                <li key={tt} className={`grid grid-cols-[2rem_1fr] gap-3 border-l-2 pb-5 pl-0 last:pb-0 ${t.line}`}>
+                  <span className="-ml-[9px] grid size-7 place-items-center rounded-full bg-[#831f80] font-mono text-[11px] font-semibold text-white">{i + 1}</span>
+                  <div><h3 className="text-[15px] font-semibold leading-tight">{tt}</h3><p className={`mt-1 text-[13px] leading-5 ${t.muted}`}>{d}</p></div>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="mt-8"><Kicker t={t}>Inside the platform</Kicker></div>
           <Rail ariaLabel="Product screenshots">
             {shots.map((s) => (
-              <figure key={s.title} className="m-0 w-[86%] shrink-0 snap-start overflow-hidden rounded-2xl border border-[#e2e8f0] bg-white">
+              <figure key={s.title} className={`m-0 w-[86%] shrink-0 snap-start overflow-hidden rounded-2xl border ${t.card}`}>
                 <img alt={s.title} className="h-48 w-full object-cover object-left-top" loading="lazy" src={s.src} />
-                <figcaption className="p-3"><span className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#831f80]">{s.label}</span><p className="mt-1 text-[14px] font-semibold">{s.title}</p></figcaption>
+                <figcaption className="p-3"><span className={`font-mono text-[10px] uppercase tracking-[0.08em] ${t.kicker}`}>{s.label}</span><p className="mt-1 text-[14px] font-semibold">{s.title}</p></figcaption>
               </figure>
             ))}
           </Rail>
@@ -137,150 +165,165 @@ export function MobileLandingPage({ n }: { n: number }) {
       </section>
 
       {/* Case study */}
-      <section className="bg-white px-4 py-9">
+      <section id="case-study" className="px-4 py-9">
         <div className="mx-auto max-w-[480px]">
-          <Kicker>Case study</Kicker>
+          <Kicker t={t}>Case study</Kicker>
           <H2>{caseStudy.title}</H2>
-          <p className="mt-3 text-[15px] leading-6 text-[#64758b]">{caseStudy.copy}</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>{caseStudy.copy}</p>
           <div className="mt-4 grid grid-cols-3 gap-2">
-            {caseStudy.stats.map(([num, d]) => <div key={num} className="rounded-xl border border-[#e2e8f0] p-3"><div className="font-[family-name:var(--font-display)] text-[22px] font-semibold text-[#831f80]">{num}</div><div className="mt-1 text-[11px] leading-4 text-[#64758b]">{d}</div></div>)}
+            {caseStudy.stats.map(([num, d]) => <div key={num} className={`rounded-xl border p-3 ${t.card}`}><div className={`font-[family-name:var(--font-display)] text-[22px] font-semibold ${t.kicker}`}>{num}</div><div className={`mt-1 text-[11px] leading-4 ${t.muted}`}>{d}</div></div>)}
           </div>
           <svg viewBox="0 0 300 130" className="mt-4 w-full" role="img" aria-label="Upscale share of daily AppLovin spend grew from 0% to more than 80% between June 26 and September 2, 2026">
-            {[0, 50, 100].map((p) => <line key={p} x1="20" x2="280" y1={Y(p)} y2={Y(p)} stroke="#e2e8f0" />)}
+            {[0, 50, 100].map((p) => <line key={p} x1="20" x2="280" y1={Y(p)} y2={Y(p)} stroke={t.grid} />)}
             <line x1="20" x2="280" y1={Y(80)} y2={Y(80)} stroke={P} strokeDasharray="4 3" />
-            <text x="24" y={Y(80) - 4} fontSize="8" fill={P} fontFamily="monospace">80% reference</text>
-            <path d={`${line} L280 ${Y(0)} L20 ${Y(0)} Z`} fill={P} opacity="0.16" />
-            <path d={line} fill="none" stroke={P} strokeWidth="2.5" strokeLinejoin="round" />
-            {[["Jun 26", 0], ["Jul 15", 19], ["Aug 5", 40], ["Sep 2", 68]].map(([l, d]) => <text key={l as string} x={X(d as number)} y="124" fontSize="8" fill="#64758b" textAnchor="middle" fontFamily="monospace">{l}</text>)}
+            <text x="24" y={Y(80) - 4} fontSize="8" fill={dark ? "#c9a3e0" : P} fontFamily="monospace">80% reference</text>
+            <path d={`${line} L280 ${Y(0)} L20 ${Y(0)} Z`} fill={P} opacity="0.2" />
+            <path d={line} fill="none" stroke={dark ? "#c9a3e0" : P} strokeWidth="2.5" strokeLinejoin="round" />
+            {[["Jun 26", 0], ["Jul 15", 19], ["Aug 5", 40], ["Sep 2", 68]].map(([l, d]) => <text key={l as string} x={X(d as number)} y="124" fontSize="8" fill={dark ? "rgba(255,255,255,0.65)" : "#64758b"} textAnchor="middle" fontFamily="monospace">{l}</text>)}
           </svg>
-          <p className="font-mono text-[10px] leading-4 text-[#64758b]">Upscale share of daily AppLovin spend. Directional reconstruction from the dashboard trend; intermediate values are approximate.</p>
+          <p className={`font-mono text-[10px] leading-4 ${t.muted}`}>Upscale share of daily AppLovin spend. Directional reconstruction from the dashboard trend; intermediate values are approximate.</p>
           <h3 className="mt-6 font-[family-name:var(--font-display)] text-[20px] font-semibold leading-tight">Creator demos win. Discount-led ads are the floor.</h3>
           <div className="mt-3 grid gap-2">
-            {caseStudy.bars.map(([t, x]) => (
-              <div key={t} className="grid grid-cols-[112px_1fr_44px] items-center gap-2 text-[12px]">
-                <span className="text-right leading-tight">{t}</span>
-                <span className="relative h-4 overflow-hidden rounded-md bg-[#f1f5f9]"><span className="absolute inset-y-0 left-0 rounded-md" style={{ width: `${(x / 1.8) * 100}%`, background: x >= caseStudy.benchmark ? P : "#94a3b8" }} /><span className="absolute inset-y-0 border-l-2 border-dashed border-[#021a20]/70" style={{ left: `${(caseStudy.benchmark / 1.8) * 100}%` }} /></span>
+            {caseStudy.bars.map(([tt, x]) => (
+              <div key={tt} className="grid grid-cols-[112px_1fr_44px] items-center gap-2 text-[12px]">
+                <span className="text-right leading-tight">{tt}</span>
+                <span className={`relative h-4 overflow-hidden rounded-md ${t.chip}`}><span className="absolute inset-y-0 left-0 rounded-md" style={{ width: `${(x / 1.8) * 100}%`, background: x >= caseStudy.benchmark ? P : t.low }} /><span className={`absolute inset-y-0 border-l-2 border-dashed ${dark ? "border-white/70" : "border-[#021a20]/70"}`} style={{ left: `${(caseStudy.benchmark / 1.8) * 100}%` }} /></span>
                 <span className="font-mono">{x.toFixed(2)}%</span>
               </div>
             ))}
           </div>
-          <p className="mt-2 font-mono text-[10px] leading-4 text-[#64758b]">{caseStudy.note}</p>
+          <p className={`mt-2 font-mono text-[10px] leading-4 ${t.muted}`}>{caseStudy.note}</p>
         </div>
       </section>
 
       {/* Showcase */}
-      <section className="border-y border-[#e2e8f0] px-4 py-9">
+      <section className={`border-y px-4 py-9 ${t.line} ${t.alt}`}>
         <div className="mx-auto max-w-[480px]">
-          <Kicker>Showcase</Kicker>
+          <Kicker t={t}>Showcase</Kicker>
           <H2>Made for AppLovin.</H2>
-          <p className="mt-3 text-[15px] leading-6 text-[#64758b]">Vertical, captioned, built for sound off, with the offer in the last five seconds. Tap to play.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Vertical, captioned, built for sound off, with the offer in the last five seconds. Tap to play.</p>
           <Rail ariaLabel="AppLovin creatives">
-            {showcase.map((c) => <div key={c.slug} className="w-[46%] shrink-0 snap-start"><MobileVideoCard {...c} /></div>)}
+            {showcase.map((c) => <div key={c.slug} className="w-[46%] shrink-0 snap-start"><MobileVideoCard {...c} dark={dark} /></div>)}
           </Rail>
+          <a className={`mt-2 inline-block text-[14px] font-semibold ${t.kicker}`} href={links.showcase} target="_blank" rel="noopener noreferrer">See the full showcase →</a>
         </div>
       </section>
 
       {/* Mid CTA */}
       <section className="px-4 py-8">
-        <div className="mx-auto max-w-[480px] rounded-2xl bg-[#021a20] p-5 text-white">
-          <Kicker light>Seen enough?</Kicker>
-          <H2 light>Get your first four AppLovin ads.</H2>
-          <p className="mt-2 text-[14px] leading-6 text-white/75">{offer}</p>
-          <div className="mt-4 grid grid-cols-2 gap-2.5"><Cta href={links.onboarding} block>Get started</Cta><Cta href={links.demo} ghost light block>Book a demo</Cta></div>
+        <div className={`mx-auto max-w-[480px] rounded-2xl p-5 ${t.inverse}`}>
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] opacity-80">Seen enough?</p>
+          <H2>Get your first four AppLovin ads.</H2>
+          <p className="mt-2 text-[14px] leading-6 opacity-80">{offer}</p>
+          <div className="mt-4 grid gap-2.5"><Cta t={t} href={links.onboarding}>Get started free</Cta><a className={`inline-flex w-full items-center justify-center rounded-2xl border px-5 py-4 text-[17px] font-semibold ${dark ? "border-[#021a20]/25" : "border-white/35"}`} href={links.demo} target="_blank" rel="noopener noreferrer">Book a demo</a></div>
         </div>
       </section>
 
       {/* Calendar */}
-      <section className="bg-white px-4 py-9">
+      <section className={`px-4 py-9 ${t.alt}`}>
         <div className="mx-auto max-w-[480px]">
-          <Kicker>The creative calendar</Kicker>
+          <Kicker t={t}>The creative calendar</Kicker>
           <H2>New ads every 10 to 14 days. A read every week.</H2>
-          <p className="mt-3 text-[15px] leading-6 text-[#64758b]">AppLovin needs a steady supply of new creative. Creative OS keeps a batch of four new ads moving every 10 to 14 days, reads performance each week, and feeds what it learns into the next batch.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>AppLovin needs a steady supply of new creative. Creative OS keeps a batch of four new ads moving every 10 to 14 days, reads performance each week, and feeds what it learns into the next batch.</p>
           <div className="mt-4 grid grid-cols-4 gap-1.5">
             {[1, 12, 25, 38].map((d, i) => <div key={d} className="rounded-lg bg-[#831f80] p-2 text-white"><div className="font-mono text-[10px] opacity-80">Day {d}</div><div className="text-[12px] font-semibold leading-tight">Batch {i + 1}</div><div className="text-[10px] opacity-80">4 new ads</div></div>)}
           </div>
           <ol className="mt-4 grid gap-2">
-            {calendar.map(([t, d]) => <li key={t} className="grid grid-cols-[76px_1fr] gap-3 border-t border-[#e2e8f0] pt-2 text-[13px]"><span className="font-mono text-[11px] font-semibold text-[#831f80]">{t}</span><span className="leading-5 text-[#021a20]">{d}</span></li>)}
+            {calendar.map(([tt, d]) => <li key={tt} className={`grid grid-cols-[76px_1fr] gap-3 border-t pt-2 text-[13px] ${t.line}`}><span className={`font-mono text-[11px] font-semibold ${t.kicker}`}>{tt}</span><span className="leading-5">{d}</span></li>)}
           </ol>
         </div>
       </section>
 
       {/* Pricing */}
-      <section className="px-4 py-9">
+      <section id="pricing" className="px-4 py-9">
         <div className="mx-auto max-w-[480px]">
-          <Kicker>Pricing</Kicker>
+          <Kicker t={t}>Pricing</Kicker>
           <H2>Start with the strategist. Add the Creative Team when you want the ads made.</H2>
           <Rail ariaLabel="Plans">
             {pricing.map((p) => (
-              <div key={p.name} className={`flex w-[84%] shrink-0 snap-start flex-col rounded-2xl border bg-white p-4 ${p.primary ? "border-[#831f80]" : "border-[#e2e8f0]"}`}>
+              <div key={p.name} className={`flex w-[84%] shrink-0 snap-start flex-col rounded-2xl border p-4 ${p.primary ? "border-[#831f80]" : ""} ${t.card}`}>
                 <div className="min-h-[2.6em] text-[14px] font-semibold">{p.name}</div>
                 <div className="font-[family-name:var(--font-display)] text-[36px] font-semibold tracking-[-0.03em]">{p.price}</div>
-                <div className="font-mono text-[11px] text-[#64758b]">{p.per}</div>
-                {p.includes && <div className="mt-1.5 self-start rounded-full bg-[#f0eafe] px-2.5 py-0.5 text-[11px] font-semibold text-[#831f80]">{p.includes}</div>}
+                <div className={`font-mono text-[11px] ${t.muted}`}>{p.per}</div>
+                {p.includes && <div className={`mt-1.5 self-start rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${t.tint} ${t.kicker}`}>{p.includes}</div>}
                 <ul className="mt-3 grid gap-1.5 text-[13px]">{p.features.map((f) => <li key={f} className="flex gap-2"><span className="text-[#0a6d86]">✓</span>{f}</li>)}</ul>
-                {p.promo && <p className="mt-3 rounded-lg bg-[#f0eafe] p-2.5 text-[12px] font-semibold text-[#831f80]">{p.promo}</p>}
-                <div className="mt-auto pt-4"><Cta href={links.onboarding} ghost={!p.primary} block>Get started</Cta></div>
+                {p.promo && <p className={`mt-3 rounded-lg p-2.5 text-[12px] font-semibold ${t.tint} ${t.kicker}`}>{p.promo}</p>}
+                <div className="mt-auto pt-4"><Cta t={t} href={links.onboarding} ghost={!p.primary}>Get started</Cta></div>
               </div>
             ))}
           </Rail>
-          <p className="mt-2 text-[13px] text-[#64758b]">AppLovin today. YouTube and CTV on request. Spending more than these tiers cover? <a className="font-semibold text-[#831f80]" href={links.demo} target="_blank" rel="noopener noreferrer">Talk to us</a>.</p>
+          <p className={`mt-2 text-[13px] ${t.muted}`}>AppLovin today. YouTube and CTV on request. Spending more than these tiers cover? <a className={`font-semibold ${t.kicker}`} href={links.demo} target="_blank" rel="noopener noreferrer">Talk to us</a>.</p>
+          <div className="mt-6 grid grid-cols-2 gap-2.5">
+            {riskFree.map(([tt, d]) => <div key={tt} className={`rounded-xl border p-3 ${t.card}`}><div className="flex items-center gap-1.5 text-[13px] font-semibold"><span className="text-[#0a6d86]">✓</span>{tt}</div><p className={`mt-1 text-[12px] leading-4 ${t.muted}`}>{d}</p></div>)}
+          </div>
+          <div className="mt-8">
+            <Kicker t={t}>Us vs. them</Kicker>
+            <H2>What you get, side by side.</H2>
+            <div className="-mx-4 mt-4 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <table className="w-full min-w-[420px] border-collapse text-[12px]">
+                <thead><tr>{["", ...compare.cols].map((c, i) => <th key={i} className={`border-b p-2 text-left font-semibold ${t.line} ${i === 1 ? t.kicker : ""} ${i === 0 ? `sticky left-0 z-10 w-[46%] ${t.thead}` : "text-center"}`}>{c}</th>)}</tr></thead>
+                <tbody>{compare.rows.map((r) => <tr key={r[0]}>{r.map((cell, i) => <td key={i} className={`border-b p-2 ${t.line} ${i === 0 ? `sticky left-0 z-10 font-medium ${t.thead}` : "text-center"} ${i === 1 ? `font-semibold ${t.kicker} ${t.tint}` : ""}`}>{cell}</td>)}</tr>)}</tbody>
+              </table>
+            </div>
+            <p className={`mt-2 font-mono text-[10px] ${t.muted}`}>“Varies” means it depends on the provider or team; we make no claim about any named company.</p>
+          </div>
         </div>
       </section>
 
       {/* Get started */}
-      <section id="start" className="bg-white px-4 py-9">
+      <section id="start" className={`px-4 py-9 ${t.alt}`}>
         <div className="mx-auto max-w-[480px]">
-          <Kicker>Get started</Kicker>
+          <Kicker t={t}>Get started</Kicker>
           <H2>Get your first four AppLovin ads.</H2>
-          <p className="mt-3 text-[15px] leading-6 text-[#64758b]">Sign up and our Creative Team makes you four new high-performance AppLovin ads in your first month, free. Start whichever way fits.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Sign up and our Creative Team makes you four new high-performance AppLovin ads in your first month, free. Start whichever way fits.</p>
           <div className="mt-4 grid gap-3">
             {paths.map((p) => (
-              <a key={p.kicker} href={p.href} target="_blank" rel="noopener noreferrer" className={`block rounded-2xl border p-4 ${p.primary ? "border-[#831f80] bg-[#f0eafe]/40" : "border-[#e2e8f0]"}`}>
-                <Kicker>{p.kicker}</Kicker>
+              <a key={p.kicker} href={p.href} target="_blank" rel="noopener noreferrer" className={`block rounded-2xl border p-4 ${p.primary ? "border-[#831f80]" : ""} ${t.card}`}>
+                <Kicker t={t}>{p.kicker}</Kicker>
                 <h3 className="mt-1 text-[18px] font-semibold">{p.title}</h3>
-                <p className="mt-1 text-[13px] leading-5 text-[#64758b]">{p.copy}</p>
-                <span className="mt-2 inline-block text-[14px] font-semibold text-[#831f80]">{p.cta} →</span>
+                <p className={`mt-1 text-[13px] leading-5 ${t.muted}`}>{p.copy}</p>
+                <span className={`mt-2 inline-block text-[14px] font-semibold ${t.kicker}`}>{p.cta} →</span>
               </a>
             ))}
           </div>
-          <p className="mt-3 text-[13px] text-[#64758b]"><strong className="text-[#021a20]">What you bring:</strong> your brand’s site and your AppLovin account, or the intent to open one.</p>
+          <p className={`mt-3 text-[13px] ${t.muted}`}><strong className={dark ? "text-white" : "text-[#021a20]"}>What you bring:</strong> your brand’s site and your AppLovin account, or the intent to open one.</p>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="px-4 py-9">
         <div className="mx-auto max-w-[480px]">
-          <Kicker>FAQ</Kicker>
+          <Kicker t={t}>FAQ</Kicker>
           <H2>Operator questions, answered.</H2>
-          <div className="mt-4 divide-y divide-[#e2e8f0] rounded-2xl border border-[#e2e8f0] bg-white">
-            {faq.map(([q, a]) => <details key={q} className="group p-4"><summary className="flex cursor-pointer list-none items-center justify-between text-[15px] font-semibold">{q}<span className="ml-3 text-[#831f80] transition group-open:rotate-45">+</span></summary><p className="mt-2 text-[14px] leading-6 text-[#64758b]">{a}</p></details>)}
+          <div className={`mt-4 divide-y rounded-2xl border ${t.card} ${dark ? "divide-white/12" : "divide-[#e2e8f0]"}`}>
+            {faq.map(([q, a]) => <details key={q} className="group p-4"><summary className="flex cursor-pointer list-none items-center justify-between text-[15px] font-semibold">{q}<span className={`ml-3 transition group-open:rotate-45 ${t.kicker}`}>+</span></summary><p className={`mt-2 text-[14px] leading-6 ${t.muted}`}>{a}</p></details>)}
           </div>
           <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-[13px]">
-            <a className="font-semibold text-[#831f80]" href={links.beginners} target="_blank" rel="noopener noreferrer">AppLovin for DTC Beginners →</a>
-            <a className="font-semibold text-[#831f80]" href={links.handbook} target="_blank" rel="noopener noreferrer">Onboarding Handbook →</a>
-            <a className="font-semibold text-[#831f80]" href={links.bestPractices} target="_blank" rel="noopener noreferrer">Creative Best-Practices Guide →</a>
+            <a className={`font-semibold ${t.kicker}`} href={links.beginners} target="_blank" rel="noopener noreferrer">AppLovin for DTC Beginners →</a>
+            <a className={`font-semibold ${t.kicker}`} href={links.handbook} target="_blank" rel="noopener noreferrer">Onboarding Handbook →</a>
+            <a className={`font-semibold ${t.kicker}`} href={links.bestPractices} target="_blank" rel="noopener noreferrer">Creative Best-Practices Guide →</a>
           </div>
         </div>
       </section>
 
       {/* Final CTA + footer */}
       <section className="px-4 pb-28 pt-4">
-        <div className="mx-auto max-w-[480px] rounded-2xl bg-[radial-gradient(120%_80%_at_80%_0%,#3b1a4a_0%,#1a1030_45%,#021a20_100%)] p-6 text-center text-white">
+        <div className={`mx-auto max-w-[480px] rounded-2xl p-6 text-center ${t.inverse}`}>
           <h2 className="font-[family-name:var(--font-display)] text-[26px] font-semibold leading-[1.1] tracking-[-0.02em]">{promise}</h2>
-          <p className="mt-3 text-[14px] leading-6 text-white/75">{offer}</p>
-          <div className="mt-4 grid gap-2.5"><Cta href={links.onboarding} block>Get started</Cta><Cta href={links.demo} ghost light block>Book a demo</Cta></div>
+          <p className="mt-3 text-[14px] leading-6 opacity-80">{offer}</p>
+          <div className="mt-4 grid gap-2.5"><Cta t={t} href={links.onboarding}>Get started free</Cta><a className={`inline-flex w-full items-center justify-center rounded-2xl border px-5 py-4 text-[17px] font-semibold ${dark ? "border-[#021a20]/25" : "border-white/35"}`} href={links.demo} target="_blank" rel="noopener noreferrer">Book a demo</a></div>
         </div>
-        <footer className="mx-auto mt-8 max-w-[480px] text-center text-[11px] leading-5 text-[#64758b]">
-          <img alt="Upscale" className="mx-auto mb-2 h-5 w-auto" src="/customer-assets/upscale-wordmark.svg" width="136" height="35" />
+        <footer className={`mx-auto mt-8 max-w-[480px] text-center text-[11px] leading-5 ${t.muted}`}>
+          <img alt="Upscale" className={`mx-auto mb-2 h-5 w-auto ${dark ? "brightness-0 invert" : ""}`} src="/customer-assets/upscale-wordmark.svg" width="136" height="35" />
           © 2026 Upscale AI. Creative OS for AppLovin is Upscale’s AI Creative Strategist. AppLovin is a trademark of its owner; Upscale is an independent creative partner. Platform statistics cited to AppLovin.
-          <p className="mt-1 font-mono text-[10px]">Mobile landing page {n} · {v.name}</p>
+          <p className="mt-1 font-mono text-[10px]">Mobile landing page {n} · {v.name} · {theme}</p>
         </footer>
       </section>
 
       {/* Sticky CTA */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#e2e8f0] bg-white/95 backdrop-blur" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
+      <div className={`fixed inset-x-0 bottom-0 z-40 border-t backdrop-blur ${t.bar}`} style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
         <div className="mx-auto flex max-w-[480px] items-center gap-3 px-4 py-2.5">
-          <p className="min-w-0 flex-1 text-[13px] font-semibold leading-4"><span className="block">4 new AppLovin ads in your first month, free.</span><span className="block text-[11px] font-normal text-[#64758b]">Made by our Creative Team with Creative OS.</span></p>
+          <p className="min-w-0 flex-1 text-[13px] font-semibold leading-4"><span className="block">4 new AppLovin ads in your first month, free.</span><span className={`block text-[11px] font-normal ${t.muted}`}>Made by our Creative Team with Creative OS.</span></p>
           <a className="shrink-0 rounded-xl bg-[#831f80] px-4 py-2.5 text-[14px] font-semibold text-white" href={links.onboarding} target="_blank" rel="noopener noreferrer">Get started</a>
         </div>
       </div>

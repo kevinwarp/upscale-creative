@@ -7,12 +7,17 @@ export const links = {
   newBrand: "https://new-applovin.upscale.ai/",
   demo: "https://calendly.com/kevin-tvads/applovin-creative-os-demo",
   playable: "https://playabledtc.upscale.ai",
+  showcase: "https://applovin.upscale.ai/showcase",
   beginners: "https://hubs.ly/Q04sTTbM0",
   handbook: "https://hubs.ly/Q04sTTdk0",
   bestPractices: "https://storage.googleapis.com/upscale-creative-kalshi/applovin/Upscale_AppLovin_Best_Practices_Guide.pdf",
 };
 
 export const offer = "Sign up and our Creative Team will use Creative OS to make you 4 new high-performance AppLovin ads in your first month for free.";
+// Icon-format hero lines: value, what we do, risk reversal.
+export const heroValue = "4 new high-performance AppLovin ads in your first month, free. Then from $250 a month.";
+export const heroWhat = "Creative OS reads your AppLovin results, writes the briefs, and an AI Editor with our human editors makes the ads.";
+export const heroRisk = "Approve every brief and every finished ad before it goes live. A new batch every 10 to 14 days. You keep your account and your budget.";
 export const promise = "Understand what's working. Find what's missing. Make what wins next.";
 
 export type Creative = { brand: string; slug: string; poster: string; video?: string; meta?: string };
@@ -81,6 +86,37 @@ export const caseStudy = {
   bars: [["Creator demo (polished)", 1.57], ["Captioned creator", 1.16], ["Unboxing / packing", 1.15], ["Evergreen studio", 1.13], ["UGC creator", 1.03], ["Produced montage", 0.97], ["Discount-led sale", 0.63]] as const,
   benchmark: 1.09,
   note: "Click-through rate by creative type from a frame-by-frame teardown of 58 Latico creatives. Dashed line: the 1.09% account average.",
+};
+
+// What happens after sign-up, as a numbered sequence (Icon-style "How it works" steps). Facts from the homepage.
+export const process = [
+  ["Connect your account", "Your brand's site and your AppLovin account, or the intent to open one. Onboarding takes minutes."],
+  ["Creative OS reads your results", "The Performance Agent explains why each ad performed and what to make next."],
+  ["Briefs are drafted", "The Creative Agent writes the next concepts and briefs around the patterns that drive results."],
+  ["You approve the briefs", "Every brief comes back to you before anything is made."],
+  ["The ads get made", "An AI Editor and our human editors make four AppLovin ads. The first four are free."],
+  ["You approve and launch", "Every finished creative is approved by you before it goes live. A new batch every 10 to 14 days."],
+] as const;
+
+export const riskFree = [
+  ["Free first batch", "Your first four ads are included in month one."],
+  ["You approve everything", "Every brief and every finished ad, before it goes live."],
+  ["You keep your account", "Your AppLovin campaigns and budget stay yours. We don't run your media."],
+  ["Month to month", "Per channel. Add the Creative Team when you want the ads made."],
+] as const;
+
+// Generic comparison, no competitor names (public-content rule).
+export const compare = {
+  cols: ["Creative OS", "Typical agency", "In-house"],
+  rows: [
+    ["Reads your AppLovin data, creative by creative", "✓", "Reports", "Varies"],
+    ["Says which ads to scale, pause or replace", "✓", "Varies", "Varies"],
+    ["Persona × creative-type map of your strategy", "✓", "—", "—"],
+    ["New batch of four ads every 10 to 14 days", "✓", "Varies", "Varies"],
+    ["You approve every brief and every ad", "✓", "Varies", "✓"],
+    ["First four ads free", "✓", "—", "—"],
+    ["Starts at", "$250/mo", "Retainer", "Headcount"],
+  ],
 };
 
 export const calendar = [

@@ -4,4 +4,7 @@ import { getVariant } from "@/content/mobile-landing-pages";
 
 const v = getVariant(1);
 export const metadata: Metadata = { title: v.headline === "Creative OS for AppLovin" ? v.headline : `${v.headline} — Creative OS for AppLovin`, description: v.sub };
-export default function Page() { return <MobileLandingPage n={1} />; }
+export default async function Page({ searchParams }: { searchParams: Promise<{ theme?: string }> }) {
+  const { theme } = await searchParams;
+  return <MobileLandingPage n={1} theme={theme === "dark" ? "dark" : "light"} />;
+}
