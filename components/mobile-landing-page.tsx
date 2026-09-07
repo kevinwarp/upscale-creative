@@ -2,7 +2,6 @@ import { MobileVideoCard } from "@/components/mobile-video-card";
 import { MEDIA, agents, applovinLogos, calendar, caseStudy, faq, getVariant, links, offer, paths, platformStats, pricing, promise, quotes, sequence, shots, showcase } from "@/content/mobile-landing-pages";
 
 const P = "#831f80"; // brand purple
-const K = "#021a20"; // brand black
 
 function Kicker({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return <p className={`font-mono text-[11px] font-semibold uppercase tracking-[0.12em] ${light ? "text-[#c9a3e0]" : "text-[#831f80]"}`}>{children}</p>;
