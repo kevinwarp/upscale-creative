@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "product-led",
+    "name": "Product-led",
+    "coreAngle": "Define the category and make the Creative OS itself the lead idea.",
+    "headline": "[PRODUCT CATEGORY] FOR APPLOVIN CREATIVE",
+    "description": "For [IDEAL CUSTOMER], Upscale is the [PRODUCT CATEGORY] that [PRIMARY OUTCOME] through [MECHANISM].",
+    "assurances": ["[RISK REVERSAL]", "[TIME TO VALUE]", "[VERIFIED PRODUCT PROOF]"],
+    "sectionDirections": [
+      "Name the [PRODUCT CATEGORY], [IDEAL CUSTOMER], [PRIMARY OUTCOME], and [MECHANISM], then present [PRIMARY CTA] and [SECONDARY CTA].",
+      "Preview the eight Icon-style branches: [FORMATS], [STORY], [INVESTORS / ADVISORS], [PARTNER PROGRAM], [MODULES], [COMPARISON], [CUSTOMERS], and [WORKFLOW].",
+      "Show [FORMAT COUNT] approved AppLovin creative formats with [HOOK], [USE CASE], and [APPROVED ASSET] for each.",
+      "Map the exact seven-step journey from [INPUT] to [OUTPUT], including [OWNER], [TIMING], [APPROVAL], and [COMMERCIAL TRIGGER].",
+      "Define [ENTRY OFFER], [HIGH-TOUCH OFFER], and [ENTERPRISE / PARTNER OFFER] with verified scope, price, cadence, rights, and risk controls.",
+      "Support the product thesis with [CUSTOMER COUNT], [APPROVED QUOTES], [VERIFIED RESULTS], [TEST WINDOWS], and [ATTRIBUTION].",
+      "Explain [MODULE 01–04], the function of each module, the state transitions, and how they combine into one Creative OS.",
+      "Compare Upscale with [ALTERNATIVE 01–07] only across approved dimensions, verified capabilities, and current pricing.",
+      "Connect [FOUNDER HISTORY], [VERIFIED OUTCOME], and [LEARNED INSIGHT] to why this product category exists now.",
+      "List only approved [INVESTORS / ADVISORS] and explain their customer relevance, if any.",
+      "Specify [PARTNER ICP], [BOUNTY], [REV SHARE], [QUALIFICATION], [PAYOUT TRIGGER], and reusable post formats.",
+      "Use an optional self-aware Creative OS 3.0 pricing beat with [PLAYFUL PLAN 01–02], or remove it if unapproved.",
+      "Reopen the six highest-intent branches with short, product-led descriptions and exact anchor links.",
+      "Restate [PRIMARY PROMISE], [RISK REVERSAL / TIME TO VALUE], and the same two CTA paths without adding new claims."
+    ]
+  },
+  {
+    "slug": "pain-led",
+    "name": "Pain-led",
+    "coreAngle": "Lead with the current creative bottleneck and the tradeoff the buyer wants to remove.",
+    "headline": "[PRIMARY PAIN], WITHOUT [CURRENT TRADEOFF]",
+    "description": "[TARGET ROLE] uses Upscale to replace [CURRENT PROCESS] with [MECHANISM], while preserving [NON-NEGOTIABLE].",
+    "assurances": ["[PAIN-SEVERITY PROOF]", "[SWITCHING RISK CONTROL]", "[TIME TO FIRST RELIEF]"],
+    "sectionDirections": [
+      "Frame [PRIMARY PAIN], [CURRENT PROCESS], [CURRENT TRADEOFF], [NON-NEGOTIABLE], and the two next-step CTAs.",
+      "Use the eight swipe cards to route each major pain to the relevant proof, workflow, product, or commercial section.",
+      "Organize creative formats by the pain they solve: [FATIGUE], [SPEED], [VOLUME], [LOCALIZATION], or other approved problems.",
+      "Show where the current process breaks, then map the seven-step replacement workflow with owners, timings, approvals, and handoffs.",
+      "Price the solution against [COST OF CURRENT PAIN] using only approved numbers, with clear scope, terms, and switching protections.",
+      "Select customer stories that document the same pain, baseline, intervention, test window, and verified result.",
+      "Describe how [MODULE 01–04] address the pain without claiming unsupported automation, integrations, or performance.",
+      "Compare [CURRENT PROCESS / ALTERNATIVES] across the approved pain dimensions, implementation burden, and verified cost.",
+      "Tell the founder story through the first-hand observation of [PRIMARY PAIN] and the evidence that shaped Upscale.",
+      "Use [INVESTOR / ADVISOR] proof only where it reduces a specific buyer concern or implementation risk.",
+      "Position the partner program around helping [PARTNER ICP] identify and refer teams experiencing [PRIMARY PAIN].",
+      "Use the optional pattern-break to exaggerate the old workflow’s absurdity through placeholders, subject to approval.",
+      "Reopen the pain diagnosis, customer evidence, workflow, comparison, product, and partner branches.",
+      "Close on the cost of leaving [PRIMARY PAIN] unresolved, then repeat [PRIMARY CTA] and [SECONDARY CTA]."
+    ]
+  },
+  {
+    "slug": "outcome-led",
+    "name": "Outcome-led",
+    "coreAngle": "Lead with the buyer’s desired creative result and make proof architecture the central thread.",
+    "headline": "[PRIMARY OUTCOME] FROM EVERY CREATIVE CYCLE",
+    "description": "Turn [INPUT] into [PRIMARY OUTCOME] for AppLovin through [MECHANISM], measured by [APPROVED KPI].",
+    "assurances": ["[VERIFIED RESULT]", "[TEST WINDOW / SAMPLE]", "[ATTRIBUTION METHOD]"],
+    "sectionDirections": [
+      "Define [PRIMARY OUTCOME], [INPUT], [MECHANISM], [APPROVED KPI], and the two CTA paths without implying a guarantee.",
+      "Use the eight cards to preview the evidence, workflow, formats, product, commercial model, and credibility behind the outcome.",
+      "Show which [FORMAT 01–04] are hypothesized or proven to support [PRIMARY OUTCOME], with approved evidence labels.",
+      "Map the seven-step operating rhythm and identify the KPI, decision, owner, and output at each stage.",
+      "Tie each offer to an explicit [DELIVERABLE], [MEASUREMENT PLAN], [CADENCE], [PRICE], and [RISK CONTROL].",
+      "Lead with the strongest approved customer evidence, including baseline, sample, test window, attribution, and limitations.",
+      "Explain the module chain from [INPUT] to [OUTPUT] and where [APPROVED KPI] is observed or exported.",
+      "Compare alternatives on outcome-relevant dimensions only, with current evidence and no implied superiority where data is missing.",
+      "Connect the founder’s verified experience to the pursuit of [PRIMARY OUTCOME] and the product thesis.",
+      "Show approved backers or advisors only when their expertise strengthens the outcome narrative.",
+      "Define how partners qualify, refer, and get paid for customers seeking [PRIMARY OUTCOME].",
+      "Use the optional joke-price cards as a tonal reset, keeping every price and promise as a placeholder.",
+      "Reopen proof, formats, workflow, product, comparison, and commercial branches for outcome-focused buyers.",
+      "Repeat [PRIMARY OUTCOME], the evidence qualifier, and both CTAs without introducing a new metric."
+    ]
+  },
+  {
+    "slug": "workflow-led",
+    "name": "Workflow-led",
+    "coreAngle": "Lead with the operating system and make the seven-step process the primary differentiator.",
+    "headline": "FROM [INPUT] TO [OUTPUT], IN ONE CREATIVE OS",
+    "description": "Bring [INPUT], [WORKFLOW], and [OUTPUT] into one creative operating layer for [TARGET TEAM].",
+    "assurances": ["[HANDOFF REDUCTION]", "[APPROVAL CONTROL]", "[DELIVERY TIMING]"],
+    "sectionDirections": [
+      "Name [INPUT], [OUTPUT], [TARGET TEAM], [WORKFLOW PROBLEM], and the two CTA paths.",
+      "Use the eight cards as an operating map that links formats, workflow, modules, proof, comparison, and commercial choices.",
+      "Define each format as a reusable workflow object with [REQUIRED INPUTS], [OWNER], [APPROVAL], and [OUTPUT].",
+      "Make the seven-step section the narrative center: exact owner, timing, system state, approval gate, billing trigger, and output per step.",
+      "Package the workflow by level of ownership: [ENTRY], [HIGH-TOUCH], and [ENTERPRISE / PARTNER], with verified terms.",
+      "Choose stories that prove workflow change using approved cycle-time, throughput, quality, or collaboration evidence.",
+      "Map [MODULE 01–04] to the seven steps and show the approved states, handoffs, and integrations for each.",
+      "Compare Upscale with [ALTERNATIVE 01–07] on workflow coverage, ownership, approvals, visibility, and verified cost.",
+      "Tell the founder story around the operational gap that led to the Creative OS model.",
+      "Use approved operator and advisor credibility where it validates workflow design or implementation experience.",
+      "Explain the referral and implementation handoff for [PARTNER ICP], including qualification and economics.",
+      "Use the optional pattern-break to contrast one operating system with [FRAGMENTED TOOL COUNT], if approved.",
+      "Reopen the workflow, modules, formats, comparison, customer, and partner branches.",
+      "Close by restating the [INPUT]-to-[OUTPUT] system and both CTAs, with the same timing and risk language."
+    ]
+  },
+  {
+    "slug": "proof-led",
+    "name": "Proof-led",
+    "coreAngle": "Lead with the strongest verified evidence and make sourcing and qualification visible throughout.",
+    "headline": "[VERIFIED PROOF POINT] FOR [TARGET SEGMENT]",
+    "description": "Across [TEST WINDOW / SAMPLE], Upscale delivered [VERIFIED RESULT] for [TARGET SEGMENT], measured by [ATTRIBUTION METHOD].",
+    "assurances": ["[EVIDENCE SOURCE]", "[LIMITATION / QUALIFIER]", "[REFERENCE AVAILABILITY]"],
+    "sectionDirections": [
+      "Lead with one fully sourced [VERIFIED PROOF POINT], [TARGET SEGMENT], [SAMPLE], [TEST WINDOW], and [ATTRIBUTION METHOD].",
+      "Route visitors from the proof claim to customers, workflow, formats, product, comparison, credibility, and commercial detail.",
+      "Show only formats with approved examples or label each item [HYPOTHESIS] until performance evidence is supplied.",
+      "Document the seven-step process that produced the proof, including inputs, owners, timing, approvals, and controls.",
+      "State offer scope and pricing separately from performance evidence; include all terms, rights, and risk language.",
+      "Expand the lead proof into attributed customer stories with sources, baselines, samples, windows, and limitations.",
+      "Show which [MODULE 01–04] were actually involved in the verified result and leave unused capabilities as placeholders.",
+      "Use evidence-backed comparison rows only; mark every unsourced competitor value [VERIFY].",
+      "Include only verified founder milestones that explain the capability to produce or measure the result.",
+      "List approved investors or advisors as named credibility, without implying endorsement of the performance claim.",
+      "Define partner claims, economics, and qualification independently from customer performance evidence.",
+      "Keep the optional pattern-break claim-free, or remove it if it weakens the proof-led tone.",
+      "Reopen customer evidence, methods, workflow, formats, product, and comparison for verification-minded buyers.",
+      "Repeat the same sourced proof point, qualifier, and two CTAs; do not introduce a second unsourced claim."
+    ]
+  }
+]
