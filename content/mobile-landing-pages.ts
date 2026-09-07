@@ -175,3 +175,65 @@ export const getVariant = (n: number) => {
   if (!v) throw new Error(`Unknown mobile landing page ${n}`);
   return v;
 };
+
+
+// ---- Subpages (Icon's /formats, /admaker-2.0, /customers counterparts) ----
+export type Page = "landing" | "formats" | "creative-os" | "customers";
+
+export const pages: Record<Exclude<Page, "landing">, { path: string; kicker: string; title: string; value: string; what: string }> = {
+  formats: { path: "/mobile-formats", kicker: "AppLovin best practices", title: "Formats", value: "Seven creative types, ranked by what actually clicks on AppLovin.", what: "From a frame-by-frame teardown of 58 AppLovin creatives and Upscale's AppLovin best-practices guide. Creative OS finds these patterns in your account, then makes the ads." },
+  "creative-os": { path: "/mobile-creative-os", kicker: "The product", title: "Creative OS", value: "Upscale's AI Creative Strategist for AppLovin. Two agents, one map, and the editors who make the ads.", what: "It reads your AppLovin results, explains why each ad performed, writes the next briefs, and maps your personas against creative types so you can see where the gaps are." },
+  customers: { path: "/mobile-customers", kicker: "Customers", title: "Made for AppLovin.", value: "21 creatives across 9 brands, all vertical, captioned, built for sound off, with the offer in the last five seconds.", what: "Every one was made by our Creative Team with Creative OS for AppLovin. Tap any card to play." },
+};
+
+// Creative types from the Latico teardown (58 creatives, weighted CTR vs a 1.09% account benchmark).
+export const formats: { name: string; ctr: number; what: string; rule: string; example?: string }[] = [
+  { name: "Creator demo (polished)", ctr: 1.57, what: "One real creator talking to camera, demoing the product, with a clean edit.", rule: "Question or curiosity-gap hook in the first two seconds, high-contrast product in the opening frames, a specific use-case moment, and give the demo room: about 45 seconds.", example: "latico-leathers" },
+  { name: "Captioned creator", ctr: 1.16, what: "Creator to camera with bold kinetic captions carrying the message sound-off.", rule: "Captions with hierarchy, never a dense paragraph. Most viewers watch muted.", example: "jones-road-beauty" },
+  { name: "Unboxing / packing", ctr: 1.15, what: "In-situ unboxing or packing the product, long-form.", rule: "Curiosity carries the first half; the long demo earns the click." },
+  { name: "Evergreen studio", ctr: 1.13, what: "The workhorse: studio product demo with a feature-to-benefit structure.", rule: "Reliable at scale. Close with proof, not a discount." },
+  { name: "UGC creator", ctr: 1.03, what: "Selfie-style creator content, high variance.", rule: "Wins when the creator has one strong single-feature hook; loses when the sign-off is weak." },
+  { name: "Produced montage", ctr: 0.97, what: "Agency-style montage with music, press logos and mixed settings.", rule: "Reads as an ad. Over-production dilutes the native feel." },
+  { name: "Discount-led sale", ctr: 0.63, what: "The offer as the hook.", rule: "The account floor. Keep the offer on the end card; never make the discount the hook." },
+];
+
+export const winningDna = [
+  "One real creator talking to camera, demoing the product. Creator beats polished montage beats no human.",
+  "A question or curiosity-gap hook in the first two seconds. Open a loop, never a feature or a price.",
+  "High-contrast product in the opening frames: the thumb-stop.",
+  "Bold kinetic captions with hierarchy, never a dense paragraph.",
+  "A specific use-case moment beats a feature list.",
+  "Give the demo room. Longer creator demos beat 26 to 30 second montages.",
+  "Proof as the closer: reviews, the award, the number.",
+] as const;
+
+export const losingDna = [
+  "No human, music-only product montage.",
+  "Over-produced agency montage with press logos as the whole creative.",
+  "Dense caption paragraphs, unreadable sound-off.",
+  "Compressing the cut to 26 to 30 seconds.",
+  "Discount as the hook. Dedicated sale creatives are the floor.",
+] as const;
+
+export const attentionRule = "On AppLovin the viewer is most locked in at the end, right as the close button appears. Put the offer, the proof and the button in the final five seconds.";
+
+export const showcaseAll = [
+  { brand: "Latico Leathers", slug: "latico-leathers", posters: [`${MEDIA}/showcase-9x16/latico-leathers-1.jpg`, `${MEDIA}/showcase-9x16/latico-leathers-2.jpg`, `${MEDIA}/showcase-9x16/latico-leathers-3.jpg`, `${MEDIA}/showcase-9x16/latico-leathers.jpg`], video: `${MEDIA}/videos/latico-leathers.mp4` },
+  { brand: "Once Upon a Farm", slug: "once-upon-a-farm", posters: [`${MEDIA}/showcase-9x16/once-upon-a-farm-1.jpg`, `${MEDIA}/showcase-9x16/once-upon-a-farm-2.jpg`, `${MEDIA}/showcase-9x16/once-upon-a-farm-3.jpg`, `${MEDIA}/showcase-9x16/once-upon-a-farm.jpg`], video: `${MEDIA}/videos/once-upon-a-farm.mp4` },
+  { brand: "Swoveralls", slug: "swoveralls", posters: [`${MEDIA}/showcase-9x16/swoveralls-1.jpg`, `${MEDIA}/showcase-9x16/swoveralls-2.jpg`, `${MEDIA}/showcase-9x16/swoveralls-3.jpg`, `${MEDIA}/showcase-9x16/swoveralls.jpg`], video: `${MEDIA}/videos/swoveralls.mp4` },
+  { brand: "Kalshi", slug: "kalshi", posters: [`${MEDIA}/showcase-9x16/kalshi-1.jpg`, `${MEDIA}/showcase-9x16/kalshi-2.jpg`, `${MEDIA}/showcase-9x16/kalshi-3.jpg`, `${MEDIA}/showcase-9x16/kalshi.jpg`], video: `${MEDIA}/videos/kalshi.mp4` },
+  { brand: "Rally", slug: "rally", posters: [`${MEDIA}/showcase-9x16/rally-1.jpg`, `${MEDIA}/showcase-9x16/rally-2.jpg`, `${MEDIA}/showcase-9x16/rally-3.jpg`, `${MEDIA}/showcase-9x16/rally.jpg`], video: `${MEDIA}/videos/rally.mp4` },
+  { brand: "Jones Road Beauty", slug: "jones-road-beauty", posters: [`${MEDIA}/showcase-9x16/jones-road-beauty-1.jpg`, `${MEDIA}/showcase-9x16/jones-road-beauty-2.jpg`, `${MEDIA}/showcase-9x16/jones-road-beauty.jpg`], video: `${MEDIA}/videos/jones-road-beauty.mp4` },
+  { brand: "Fast Growing Trees", slug: "fast-growing-trees", posters: [`${MEDIA}/showcase-9x16/fast-growing-trees-1.jpg`, `${MEDIA}/showcase-9x16/fast-growing-trees-2.jpg`], video: undefined },
+  { brand: "Legion Athletics", slug: "legion-athletics", posters: [`${MEDIA}/showcase-9x16/legion-athletics-1.jpg`, `${MEDIA}/showcase-9x16/legion-athletics.jpg`], video: `${MEDIA}/videos/legion-athletics.mp4` },
+  { brand: "Trove", slug: "trove", posters: [`${MEDIA}/showcase-9x16/trove-1.jpg`, `${MEDIA}/showcase-9x16/trove.jpg`], video: `${MEDIA}/videos/trove.mp4` },
+] as const;
+
+export const explore = [
+  { label: "Formats", sub: "AppLovin best practices and examples", href: "/mobile-formats" },
+  { label: "Creative OS", sub: "The product: two agents and one map", href: "/mobile-creative-os" },
+  { label: "Customers", sub: "The 9:16 showcase, 21 creatives", href: "/mobile-customers" },
+  { label: "Pricing", sub: "From $250 a month, first four ads free", href: "#pricing" },
+  { label: "Get started", sub: "Connect your account or launch with us", href: "#start" },
+  { label: "Book a demo", sub: "Twenty minutes on a live account", href: "https://calendly.com/kevin-tvads/applovin-creative-os-demo" },
+] as const;

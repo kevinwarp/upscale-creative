@@ -1,5 +1,5 @@
 import { MobileVideoCard } from "@/components/mobile-video-card";
-import { MEDIA, agents, applovinLogos, calendar, caseStudy, compare, faq, getVariant, heroRisk, heroValue, heroWhat, links, offer, paths, platformStats, pricing, process, promise, quotes, riskFree, sequence, shots, showcase } from "@/content/mobile-landing-pages";
+import { MEDIA, agents, applovinLogos, attentionRule, calendar, caseStudy, compare, explore, faq, formats, getVariant, heroRisk, heroValue, heroWhat, links, losingDna, offer, pages, paths, platformStats, pricing, process, promise, quotes, riskFree, sequence, shots, showcase, showcaseAll, winningDna, type Page } from "@/content/mobile-landing-pages";
 
 export type Theme = "light" | "dark";
 const P = "#831f80"; // brand purple
@@ -19,8 +19,9 @@ const Cta = ({ href, children, ghost = false, t }: { href: string; children: Rea
 );
 const Card = ({ children, className = "", t }: { children: React.ReactNode; className?: string; t: T }) => <div className={`rounded-2xl border ${t.card} ${className}`}>{children}</div>;
 
-export function MobileLandingPage({ n, theme = "light" }: { n: number; theme?: Theme }) {
+export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: { n?: number; theme?: Theme; page?: Page }) {
   const v = getVariant(n);
+  const pg = page === "landing" ? null : pages[page];
   const t = themes[theme];
   const dark = theme === "dark";
   const second = showcase.find((c) => c.slug !== v.lead.slug)!;
@@ -38,6 +39,8 @@ export function MobileLandingPage({ n, theme = "light" }: { n: number; theme?: T
         </div>
       </header>
 
+      {page === "landing" && (
+        <>
       {/* Hero, Icon format: H1, value line, what, risk, stacked CTAs, two proof cards, two creatives */}
       <section id="top" className="px-4 pb-6 pt-7">
         <div className="mx-auto max-w-[480px]">
@@ -70,6 +73,84 @@ export function MobileLandingPage({ n, theme = "light" }: { n: number; theme?: T
           </div>
         </div>
       </section>
+        </>
+      )}
+
+      {pg && (
+        <section id="top" className="px-4 pb-6 pt-7">
+          <div className="mx-auto max-w-[480px]">
+            <Kicker t={t}>{pg.kicker}</Kicker>
+            <h1 className="mt-1.5 font-[family-name:var(--font-display)] text-[40px] font-semibold leading-[1.0] tracking-[-0.03em]">{pg.title}</h1>
+            <p className="mt-4 text-[19px] font-medium leading-[1.3]">{pg.value}</p>
+            <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>{pg.what}</p>
+            <p className={`mt-2 text-[15px] leading-6 ${t.muted}`}>{heroRisk}</p>
+            <div className="mt-5 grid gap-2.5">
+              <Cta t={t} href={links.onboarding}><span className="grid size-5 place-items-center rounded-full border-2 border-white/80"><span className="size-2 rounded-full bg-white" /></span>Get started free</Cta>
+              <Cta t={t} href={links.demo} ghost>Book a demo</Cta>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {page === "formats" && (
+        <section className={`px-4 py-9 ${t.alt}`}>
+          <div className="mx-auto max-w-[480px]">
+            <Kicker t={t}>Seven creative types</Kicker>
+            <H2>What wins on AppLovin, ranked by click-through rate.</H2>
+            <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Weighted CTR by creative type across 58 AppLovin creatives; the account average was 1.09%.</p>
+            <div className="mt-5 grid gap-3">
+              {formats.map((f, i) => {
+                const ex = f.example ? showcase.find((c) => c.slug === f.example) : undefined;
+                return (
+                  <article key={f.name} className={`overflow-hidden rounded-2xl border ${t.card}`}>
+                    <div className="grid grid-cols-[1fr_96px] gap-3 p-4">
+                      <div>
+                        <div className="flex items-center gap-2"><span className={`font-mono text-[12px] ${t.kicker}`}>0{i + 1}</span><span className={`rounded-full px-2 py-0.5 font-mono text-[11px] font-semibold ${f.ctr >= caseStudy.benchmark ? `${t.tint} ${t.kicker}` : t.chip}`}>{f.ctr.toFixed(2)}% CTR</span></div>
+                        <h3 className="mt-1.5 text-[18px] font-semibold leading-tight">{f.name}</h3>
+                        <p className={`mt-1 text-[13px] leading-5 ${t.muted}`}>{f.what}</p>
+                        <p className="mt-2 text-[13px] leading-5"><strong>The rule:</strong> {f.rule}</p>
+                        {ex && <a className={`mt-2 inline-block text-[13px] font-semibold ${t.kicker}`} href="#example-rail">Watch example →</a>}
+                      </div>
+                      {ex && <div className="self-start"><MobileVideoCard {...ex} dark={dark} /></div>}
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+            <div className="mt-8 grid gap-3">
+              <div className={`rounded-2xl border p-4 ${t.card}`}>
+                <Kicker t={t}>Winning DNA</Kicker>
+                <ol className="mt-2 grid gap-2">{winningDna.map((w, i) => <li key={w} className="grid grid-cols-[1.6rem_1fr] gap-2 text-[14px] leading-5"><span className={`font-mono text-[12px] font-semibold ${t.kicker}`}>{i + 1}</span>{w}</li>)}</ol>
+              </div>
+              <div className={`rounded-2xl border p-4 ${t.card}`}>
+                <Kicker t={t}>Losing DNA</Kicker>
+                <ul className="mt-2 grid gap-2">{losingDna.map((w) => <li key={w} className="grid grid-cols-[1.6rem_1fr] gap-2 text-[14px] leading-5"><span className={t.muted}>✕</span>{w}</li>)}</ul>
+              </div>
+              <div className={`rounded-2xl border-l-4 border-[#831f80] p-4 text-[14px] leading-6 ${t.tint}`}><strong>The last five seconds.</strong> {attentionRule}</div>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-1 text-[13px]">
+              <a className={`font-semibold ${t.kicker}`} href={links.bestPractices} target="_blank" rel="noopener noreferrer">The AppLovin Creative Best-Practices Guide (PDF) →</a>
+              <a className={`font-semibold ${t.kicker}`} href={links.beginners} target="_blank" rel="noopener noreferrer">AppLovin for DTC Beginners →</a>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {page === "customers" && (
+        <section className={`px-4 py-9 ${t.alt}`}>
+          <div className="mx-auto max-w-[480px]">
+            {showcaseAll.map((b) => (
+              <div key={b.slug} className="mb-8" id={b.slug}>
+                <h2 className="font-[family-name:var(--font-display)] text-[22px] font-semibold tracking-[-0.02em]">{b.brand}</h2>
+                <div className="mt-3 grid grid-cols-2 gap-3">
+                  {b.posters.map((poster, i) => <MobileVideoCard key={poster} brand={b.brand} poster={poster} video={b.video} meta={`AppLovin · 9:16${i ? ` · ${i + 1}` : ""}`} dark={dark} />)}
+                </div>
+              </div>
+            ))}
+            <p className={`text-[13px] ${t.muted}`}>Want yours here? <a className={`font-semibold ${t.kicker}`} href={links.onboarding} target="_blank" rel="noopener noreferrer">Get your first four AppLovin ads</a>, made by our Creative Team with Creative OS.</p>
+          </div>
+        </section>
+      )}
 
       {/* Why AppLovin */}
       <section id="why" className={`px-4 py-9 ${t.alt}`}>
@@ -202,7 +283,7 @@ export function MobileLandingPage({ n, theme = "light" }: { n: number; theme?: T
           <Kicker t={t}>Showcase</Kicker>
           <H2>Made for AppLovin.</H2>
           <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Vertical, captioned, built for sound off, with the offer in the last five seconds. Tap to play.</p>
-          <Rail ariaLabel="AppLovin creatives">
+          <div id="example-rail" /><Rail ariaLabel="AppLovin creatives">
             {showcase.map((c) => <div key={c.slug} className="w-[46%] shrink-0 snap-start"><MobileVideoCard {...c} dark={dark} /></div>)}
           </Rail>
           <a className={`mt-2 inline-block text-[14px] font-semibold ${t.kicker}`} href={links.showcase} target="_blank" rel="noopener noreferrer">See the full showcase →</a>
@@ -306,6 +387,18 @@ export function MobileLandingPage({ n, theme = "light" }: { n: number; theme?: T
         </div>
       </section>
 
+      {/* Explore more */}
+      <section className={`px-4 py-9 ${t.alt}`}>
+        <div className="mx-auto max-w-[480px]">
+          <Kicker t={t}>Explore more</Kicker>
+          <div className="mt-3 grid grid-cols-2 gap-2.5">
+            {explore.filter((e) => e.href !== (pg?.path ?? "")).map((e) => (
+              <a key={e.label} className={`rounded-2xl border p-3.5 ${t.card}`} href={e.href} target={e.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"><span className="block text-[15px] font-semibold">{e.label} →</span><span className={`mt-1 block text-[12px] leading-4 ${t.muted}`}>{e.sub}</span></a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA + footer */}
       <section className="px-4 pb-28 pt-4">
         <div className={`mx-auto max-w-[480px] rounded-2xl p-6 text-center ${t.inverse}`}>
@@ -316,7 +409,7 @@ export function MobileLandingPage({ n, theme = "light" }: { n: number; theme?: T
         <footer className={`mx-auto mt-8 max-w-[480px] text-center text-[11px] leading-5 ${t.muted}`}>
           <img alt="Upscale" className={`mx-auto mb-2 h-5 w-auto ${dark ? "brightness-0 invert" : ""}`} src="/customer-assets/upscale-wordmark.svg" width="136" height="35" />
           © 2026 Upscale AI. Creative OS for AppLovin is Upscale’s AI Creative Strategist. AppLovin is a trademark of its owner; Upscale is an independent creative partner. Platform statistics cited to AppLovin.
-          <p className="mt-1 font-mono text-[10px]">Mobile landing page {n} · {v.name} · {theme}</p>
+          <p className="mt-1 font-mono text-[10px]">{pg ? `${pg.title} · ${theme}` : `Mobile landing page ${n} · ${v.name} · ${theme}`}</p>
         </footer>
       </section>
 
