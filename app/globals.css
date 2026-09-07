@@ -67,7 +67,11 @@
 }
 
 :root {
-  --paper: #f8f8f6;
+  --paper: #f8fafc;
+  --stroke: #e2e8f0;
+  --tint-purple: #f0eafe;
+  --slate-ink: #64758b;
+  --brand-purple: #831f80;
   --ink: #021a20;
   --brand-violet: #831f80;
   --brand-cyan: #00f0ff;
@@ -88,11 +92,11 @@
   --secondary-foreground: var(--ink);
   --muted: #eceff0;
   --muted-foreground: #647277;
-  --accent: var(--brand-cyan);
+  --accent: var(--brand-purple);
   --accent-foreground: var(--ink);
   --destructive: #831f80;
-  --border: #d8dfe1;
-  --input: #d8dfe1;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
   --ring: var(--ink);
   --radius: 1rem;
 }
