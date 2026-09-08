@@ -57,13 +57,13 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
             <Card t={t} className="p-3.5">
               <div className="flex gap-1.5">{[`${MEDIA}/showcase-9x16/latico-leathers-1.jpg`, `${MEDIA}/showcase-9x16/latico-leathers-2.jpg`, `${MEDIA}/sequence/latico-video-poster.jpg`].map((s) => <img key={s} alt="" className="h-14 w-14 rounded-lg object-cover" loading="lazy" src={s} />)}</div>
               <p className="mt-3 text-[17px] font-semibold">Case study</p>
-              <p className={`mt-1 text-[13px] leading-5 ${t.muted}`}>Latico Leathers: six batches, account CTR up 19%, and Upscale creative on 80%+ of daily AppLovin spend.</p>
+              <p className={`mt-1 text-[13px] leading-5 ${t.muted}`}>Latico Leathers: six batches, CTR up 19%, Upscale creative on 80%+ of daily spend.</p>
               <a className={`mt-3 inline-block text-[13px] font-semibold ${t.kicker}`} href="#case-study">Read the case study →</a>
             </Card>
             <Card t={t} className="p-3.5">
               <div className="flex gap-1.5">{applovinLogos.slice(0, 3).map((l) => <span key={l.name} className="grid h-14 w-14 place-items-center rounded-lg bg-white p-2"><img alt={l.name} className="max-h-full max-w-full object-contain" loading="lazy" src={l.src} /></span>)}</div>
               <p className="mt-3 text-[17px] font-semibold">Why AppLovin</p>
-              <p className={`mt-1 text-[13px] leading-5 ${t.muted}`}>Ridge, Caraway, Quince, Prose and Wayfair are scaling on AppLovin. 30s+ median screen time per impression.</p>
+              <p className={`mt-1 text-[13px] leading-5 ${t.muted}`}>Ridge, Caraway, Quince, Prose and Wayfair are scaling on AppLovin.</p>
               <a className={`mt-3 inline-block text-[13px] font-semibold ${t.kicker}`} href="#why">See the evidence →</a>
             </Card>
           </div>
@@ -97,7 +97,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
           <div className="mx-auto max-w-[480px]">
             <Kicker t={t}>Seven creative types</Kicker>
             <H2>What wins on AppLovin, ranked by click-through rate.</H2>
-            <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Weighted CTR by creative type across 58 AppLovin creatives; the account average was 1.09%.</p>
+            <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>CTR by creative type across 58 AppLovin ads. The account average was 1.09%.</p>
             <div className="mt-5 grid gap-3">
               {formats.map((f, i) => {
                 const ex = f.example ? showcase.find((c) => c.slug === f.example) : undefined;
@@ -157,7 +157,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>Why AppLovin</Kicker>
           <H2>DTC brands are already scaling on AppLovin.</H2>
-          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Brands like Ridge, Caraway, Quince, Prose and Wayfair are using AppLovin to reach billions of consumers inside mobile games, and showing it can be a meaningful, scalable performance channel beyond Meta and Google.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Ridge, Caraway, Quince, Prose and Wayfair use AppLovin to reach billions of people inside mobile games. It is becoming a real performance channel beyond Meta and Google.</p>
           <Rail ariaLabel="Operators on the record">
             {quotes.map((q) => (
               <blockquote key={q.who} className={`m-0 w-[82%] shrink-0 snap-start rounded-2xl border p-4 ${t.card}`}>
@@ -175,8 +175,8 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
           </div>
           <p className={`mt-1.5 font-mono text-[9px] ${t.muted}`}>Source: AppLovin, 2026. Top 1,000 videos by spend share.</p>
           <div className={`mt-6 rounded-2xl p-5 ${t.inverse}`}>
-            <p className="text-[15px] font-semibold leading-6">Winning on AppLovin takes more than moving budget to a new platform. It is a different ad experience for the consumer, part TV, part social, part mobile game.</p>
-            <p className="mt-2 text-[14px] leading-6 opacity-80">You need a steady pipeline of unique creative, and a way to understand what is actually driving performance.</p>
+            <p className="text-[15px] font-semibold leading-6">Winning on AppLovin takes more than budget. It is a different kind of ad: part TV, part social, part game.</p>
+            <p className="mt-2 text-[14px] leading-6 opacity-80">You need a steady supply of new creative, and a clear read on what drives results.</p>
           </div>
         </div>
       </section>
@@ -186,7 +186,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>How AppLovin ads work</Kicker>
           <H2>The ad is a sequence, not a clip.</H2>
-          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>On AppLovin the ad sits between levels of a game, and you get 30 seconds or more across connected parts. Design one story: same product, same promise, same proof, same next action.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Your ad sits between game levels. You get 30 seconds or more, in connected parts. Tell one story.</p>
           <Rail ariaLabel="The AppLovin ad sequence">
             {sequence.map(([tt, d], i) => (
               <div key={tt} className={`w-[70%] shrink-0 snap-start rounded-2xl border p-4 ${t.card}`}>
@@ -207,7 +207,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>How it works</Kicker>
           <H2>{promise}</H2>
-          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Two agents and one map. Then an AI Editor and our human editors make the ads.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Two agents and one map. Then our editors make the ads.</p>
           <div className="mt-5 grid gap-4">
             {agents.map((a, i) => (
               <article key={a.badge} className={`overflow-hidden rounded-2xl border ${t.card}`}>
@@ -220,7 +220,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
               </article>
             ))}
           </div>
-          <div className={`mt-5 rounded-2xl border-l-4 border-[#831f80] p-4 text-[14px] leading-6 ${t.tint}`}><strong>We don’t stop at recommendations.</strong> An AI Editor and our human editors make the ads, and you approve every brief and every finished creative before it goes live.</div>
+          <div className={`mt-5 rounded-2xl border-l-4 border-[#831f80] p-4 text-[14px] leading-6 ${t.tint}`}><strong>We don’t stop at recommendations.</strong> Our editors make the ads. You approve every brief and every ad.</div>
           <div className="mt-8">
             <Kicker t={t}>What happens next</Kicker>
             <H2>From sign-up to your first four ads.</H2>
@@ -262,7 +262,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
             <path d={line} fill="none" stroke={dark ? "#c9a3e0" : P} strokeWidth="2.5" strokeLinejoin="round" />
             {[["Jun 26", 0], ["Jul 15", 19], ["Aug 5", 40], ["Sep 2", 68]].map(([l, d]) => <text key={l as string} x={X(d as number)} y="124" fontSize="8" fill={dark ? "rgba(255,255,255,0.65)" : "#64758b"} textAnchor="middle" fontFamily="monospace">{l}</text>)}
           </svg>
-          <p className={`font-mono text-[10px] leading-4 ${t.muted}`}>Upscale share of daily AppLovin spend. Directional reconstruction from the dashboard trend; intermediate values are approximate.</p>
+          <p className={`font-mono text-[10px] leading-4 ${t.muted}`}>Upscale share of daily AppLovin spend. Points between the dates are approximate.</p>
           <h3 className="mt-6 font-[family-name:var(--font-display)] text-[20px] font-semibold leading-tight">Creator demos win. Discount-led ads are the floor.</h3>
           <div className="mt-3 grid gap-2">
             {caseStudy.bars.map(([tt, x]) => (
@@ -282,7 +282,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>Showcase</Kicker>
           <H2>Made for AppLovin.</H2>
-          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Vertical, captioned, built for sound off, with the offer in the last five seconds. Tap to play.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Vertical, captioned, built for sound off. Tap to play.</p>
           <div id="example-rail" /><Rail ariaLabel="AppLovin creatives">
             {showcase.map((c) => <div key={c.slug} className="w-[46%] shrink-0 snap-start"><MobileVideoCard {...c} dark={dark} /></div>)}
           </Rail>
@@ -305,7 +305,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>The creative calendar</Kicker>
           <H2>New ads every 10 to 14 days. A read every week.</H2>
-          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>AppLovin needs a steady supply of new creative. Creative OS keeps a batch of four new ads moving every 10 to 14 days, reads performance each week, and feeds what it learns into the next batch.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>AppLovin needs new creative all the time. Creative OS ships four new ads every 10 to 14 days and reads results every week.</p>
           <div className="mt-4 grid grid-cols-4 gap-1.5">
             {[1, 12, 25, 38].map((d, i) => <div key={d} className="rounded-lg bg-[#831f80] p-2 text-white"><div className="font-mono text-[10px] opacity-80">Day {d}</div><div className="text-[12px] font-semibold leading-tight">Batch {i + 1}</div><div className="text-[10px] opacity-80">4 new ads</div></div>)}
           </div>
@@ -319,7 +319,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
       <section id="pricing" className="px-4 py-9">
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>Pricing</Kicker>
-          <H2>Start with the strategist. Add the Creative Team when you want the ads made.</H2>
+          <H2>Start with the strategist. Add the team when you want the ads made.</H2>
           <Rail ariaLabel="Plans">
             {pricing.map((p) => (
               <div key={p.name} className={`flex w-[84%] shrink-0 snap-start flex-col rounded-2xl border p-4 ${p.primary ? "border-[#831f80]" : ""} ${t.card}`}>
@@ -333,7 +333,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
               </div>
             ))}
           </Rail>
-          <p className={`mt-2 text-[13px] ${t.muted}`}>AppLovin today. YouTube and CTV on request. Spending more than these tiers cover? <a className={`font-semibold ${t.kicker}`} href={links.demo} target="_blank" rel="noopener noreferrer">Talk to us</a>.</p>
+          <p className={`mt-2 text-[13px] ${t.muted}`}>AppLovin today. YouTube and CTV on request. Bigger budget? <a className={`font-semibold ${t.kicker}`} href={links.demo} target="_blank" rel="noopener noreferrer">Talk to us</a>.</p>
           <div className="mt-6 grid grid-cols-2 gap-2.5">
             {riskFree.map(([tt, d]) => <div key={tt} className={`rounded-xl border p-3 ${t.card}`}><div className="flex items-center gap-1.5 text-[13px] font-semibold"><span className="text-[#0a6d86]">✓</span>{tt}</div><p className={`mt-1 text-[12px] leading-4 ${t.muted}`}>{d}</p></div>)}
           </div>
@@ -346,7 +346,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
                 <tbody>{compare.rows.map((r) => <tr key={r[0]}>{r.map((cell, i) => <td key={i} className={`border-b p-2 ${t.line} ${i === 0 ? `sticky left-0 z-10 font-medium ${t.thead}` : "text-center"} ${i === 1 ? `font-semibold ${t.kicker} ${t.tint}` : ""}`}>{cell}</td>)}</tr>)}</tbody>
               </table>
             </div>
-            <p className={`mt-2 font-mono text-[10px] ${t.muted}`}>“Varies” means it depends on the provider or team; we make no claim about any named company.</p>
+            <p className={`mt-2 font-mono text-[10px] ${t.muted}`}>“Varies” means it depends on the provider or team. We make no claim about any named company.</p>
           </div>
         </div>
       </section>
@@ -356,7 +356,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>Get started</Kicker>
           <H2>Get your first four AppLovin ads.</H2>
-          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Sign up and our Creative Team makes you four new high-performance AppLovin ads in your first month, free. Start whichever way fits.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Four new AppLovin ads in your first month, free. Pick the path that fits.</p>
           <div className="mt-4 grid gap-3">
             {paths.map((p) => (
               <a key={p.kicker} href={p.href} target="_blank" rel="noopener noreferrer" className={`block rounded-2xl border p-4 ${p.primary ? "border-[#831f80]" : ""} ${t.card}`}>
@@ -367,7 +367,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
               </a>
             ))}
           </div>
-          <p className={`mt-3 text-[13px] ${t.muted}`}><strong className={dark ? "text-white" : "text-[#021a20]"}>What you bring:</strong> your brand’s site and your AppLovin account, or the intent to open one.</p>
+          <p className={`mt-3 text-[13px] ${t.muted}`}><strong className={dark ? "text-white" : "text-[#021a20]"}>What you bring:</strong> your site and your AppLovin account, or the plan to open one.</p>
         </div>
       </section>
 
@@ -375,7 +375,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
       <section className="px-4 py-9">
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>FAQ</Kicker>
-          <H2>Operator questions, answered.</H2>
+          <H2>Questions, answered.</H2>
           <div className={`mt-4 divide-y rounded-2xl border ${t.card} ${dark ? "divide-white/12" : "divide-[#e2e8f0]"}`}>
             {faq.map(([q, a]) => <details key={q} className="group p-4"><summary className="flex cursor-pointer list-none items-center justify-between text-[15px] font-semibold">{q}<span className={`ml-3 transition group-open:rotate-45 ${t.kicker}`}>+</span></summary><p className={`mt-2 text-[14px] leading-6 ${t.muted}`}>{a}</p></details>)}
           </div>
@@ -416,7 +416,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
       {/* Sticky CTA */}
       <div className={`fixed inset-x-0 bottom-0 z-40 border-t backdrop-blur ${t.bar}`} style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
         <div className="mx-auto flex max-w-[480px] items-center gap-3 px-4 py-2.5">
-          <p className="min-w-0 flex-1 text-[13px] font-semibold leading-4"><span className="block">4 new AppLovin ads in your first month, free.</span><span className={`block text-[11px] font-normal ${t.muted}`}>Made by our Creative Team with Creative OS.</span></p>
+          <p className="min-w-0 flex-1 text-[13px] font-semibold leading-4"><span className="block">Four AppLovin ads in your first month, free.</span><span className={`block text-[11px] font-normal ${t.muted}`}>Made by our team with Creative OS.</span></p>
           <a className="shrink-0 rounded-xl bg-[#831f80] px-4 py-2.5 text-[14px] font-semibold text-white" href={links.onboarding} target="_blank" rel="noopener noreferrer">Get started</a>
         </div>
       </div>

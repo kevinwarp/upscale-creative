@@ -15,9 +15,9 @@ export const links = {
 
 export const offer = "Sign up and our Creative Team will use Creative OS to make you 4 new high-performance AppLovin ads in your first month for free.";
 // Icon-format hero lines: value, what we do, risk reversal.
-export const heroValue = "4 new high-performance AppLovin ads in your first month, free. Then from $250 a month.";
-export const heroWhat = "Creative OS reads your AppLovin results, writes the briefs, and an AI Editor with our human editors makes the ads.";
-export const heroRisk = "Approve every brief and every finished ad before it goes live. A new batch every 10 to 14 days. You keep your account and your budget.";
+export const heroValue = "Four new AppLovin ads in your first month, free. Then from $250 a month.";
+export const heroWhat = "Creative OS reads your AppLovin results, writes the briefs, and our editors make the ads.";
+export const heroRisk = "You approve every brief and every ad. New ads every 10 to 14 days. You keep your account and your budget.";
 export const promise = "Understand what's working. Find what's missing. Make what wins next.";
 
 export type Creative = { brand: string; slug: string; poster: string; video?: string; meta?: string };
@@ -57,17 +57,17 @@ export const platformStats = [
 export const applovinLogos = ["quince", "prose", "wayfair", "caraway", "hexclad", "olipop", "bombas", "gymshark", "honeylove", "blueland", "immi"].map((s) => ({ name: s, src: `${MEDIA}/logos/${s}.${["bombas", "gymshark", "hexclad", "prose", "quince", "wayfair"].includes(s) ? "svg" : "png"}` }));
 
 export const sequence = [
-  ["Mid-game", "A level ends. The player opts in to watch an ad for a bonus. You are not fighting a feed for attention."],
-  ["Portrait video", "Full screen, 9:16, up to 60 seconds, unskippable for the first five."],
-  ["Playable", "The shopper taps, picks and plays. Attention turns into an intentional click."],
-  ["End card", "Product, offer and one button. The moment that decides the visit."],
-  ["Back to the game", "A short countdown, then play resumes. The brand had 30 seconds or more."],
+  ["Mid-game", "A level ends. The player chooses to watch an ad for a bonus."],
+  ["Portrait video", "Full screen, 9:16, up to 60 seconds. The first five cannot be skipped."],
+  ["Playable", "The shopper taps, picks and plays."],
+  ["End card", "Product, offer, one button."],
+  ["Back to the game", "A short countdown, then play resumes."],
 ] as const;
 
 export const agents = [
-  { badge: "Performance Agent", title: "Understand exactly what's working", copy: "Creative OS connects to your AppLovin data and explains why each ad performed: product, message, hook, format, offer, persona and narrative. It says which ads to scale, which are fatiguing, which to pause, and what to make next.", shot: `${MEDIA}/shots/upscale-vs-non.jpg`, alt: "Insights view comparing Upscale vs non-Upscale creative performance" },
-  { badge: "Creative Agent", title: "Turn performance data into new creative", copy: "The Creative Agent takes what your ads have taught it and writes the next concepts and briefs around the patterns that drive results: winners remixed, underperformers replaced, gaps turned into new concepts.", shot: `${MEDIA}/shots/creative-agent-briefs.jpg`, alt: "Creative Agent brief list" },
-  { badge: "Creative Matrix", title: "Go beyond individual ads", copy: "The Creative Matrix maps the personas you speak to against the creative types you run, so you can see what performs today and where your strategy has holes.", shot: `${MEDIA}/shots/matrix-strategy.png`, alt: "Creative Matrix: personas by creative type" },
+  { badge: "Performance Agent", title: "Understand exactly what's working", copy: "Connects to your AppLovin data and explains why each ad performed. Then it tells you what to scale, what to pause, and what to make next.", shot: `${MEDIA}/shots/upscale-vs-non.jpg`, alt: "Insights view comparing Upscale vs non-Upscale creative performance" },
+  { badge: "Creative Agent", title: "Turn performance data into new creative", copy: "Takes what your ads taught it and writes the next briefs. Winners remixed, losers replaced, gaps filled.", shot: `${MEDIA}/shots/creative-agent-briefs.jpg`, alt: "Creative Agent brief list" },
+  { badge: "Creative Matrix", title: "Go beyond individual ads", copy: "Maps your personas against your creative types. You see what works today and where the holes are.", shot: `${MEDIA}/shots/matrix-strategy.png`, alt: "Creative Matrix: personas by creative type" },
 ];
 
 export const shots = [
@@ -80,29 +80,29 @@ export const shots = [
 
 export const caseStudy = {
   title: "How Upscale built an AppLovin creative engine for Latico Leathers.",
-  copy: "Latico brought its brand and its AppLovin account. Creative OS read what was working, wrote the next briefs, and our Creative Team shipped six batches of channel-specific creative. Upscale creative now carries more than 80% of daily spend in the account.",
+  copy: "Latico brought its brand and its AppLovin account. Creative OS read what worked, wrote the briefs, and our team shipped six batches. Upscale creative now runs on more than 80% of daily spend.",
   stats: [["80%+", "of daily AppLovin spend on Upscale creative"], ["6", "batches, Jun 26 to Sep 2"], ["+19%", "account CTR vs. the prior 90 days"]] as const,
   share: [[0, 0], [7, 18], [19, 30], [26, 48], [40, 65], [54, 76], [68, 84]] as const,
   bars: [["Creator demo (polished)", 1.57], ["Captioned creator", 1.16], ["Unboxing / packing", 1.15], ["Evergreen studio", 1.13], ["UGC creator", 1.03], ["Produced montage", 0.97], ["Discount-led sale", 0.63]] as const,
   benchmark: 1.09,
-  note: "Click-through rate by creative type from a frame-by-frame teardown of 58 Latico creatives. Dashed line: the 1.09% account average.",
+  note: "CTR by creative type across 58 Latico ads. Dashed line: the 1.09% account average.",
 };
 
 // What happens after sign-up, as a numbered sequence (Icon-style "How it works" steps). Facts from the homepage.
 export const process = [
-  ["Connect your account", "Your brand's site and your AppLovin account, or the intent to open one. Onboarding takes minutes."],
-  ["Creative OS reads your results", "The Performance Agent explains why each ad performed and what to make next."],
-  ["Briefs are drafted", "The Creative Agent writes the next concepts and briefs around the patterns that drive results."],
-  ["You approve the briefs", "Every brief comes back to you before anything is made."],
-  ["The ads get made", "An AI Editor and our human editors make four AppLovin ads. The first four are free."],
-  ["You approve and launch", "Every finished creative is approved by you before it goes live. A new batch every 10 to 14 days."],
+  ["Connect your account", "Your site and your AppLovin account. It takes minutes."],
+  ["Creative OS reads your results", "It explains why each ad performed and what to make next."],
+  ["Briefs are drafted", "The Creative Agent writes the next briefs from what works."],
+  ["You approve the briefs", "Nothing gets made until you say so."],
+  ["The ads get made", "Our editors make four AppLovin ads. The first four are free."],
+  ["You approve and launch", "You approve every ad before it goes live. Then a new batch every 10 to 14 days."],
 ] as const;
 
 export const riskFree = [
-  ["Free first batch", "Your first four ads are included in month one."],
-  ["You approve everything", "Every brief and every finished ad, before it goes live."],
-  ["You keep your account", "Your AppLovin campaigns and budget stay yours. We don't run your media."],
-  ["Month to month", "Per channel. Add the Creative Team when you want the ads made."],
+  ["Free first batch", "Your first four ads are free."],
+  ["You approve everything", "Every brief and every ad."],
+  ["You keep your account", "Your campaigns and budget stay yours."],
+  ["Month to month", "Per channel. Add the team when you want the ads made."],
 ] as const;
 
 // Generic comparison, no competitor names (public-content rule).
@@ -120,29 +120,29 @@ export const compare = {
 };
 
 export const calendar = [
-  ["Days 1–3", "Launch the batch. Verify tracking, delivery and the full ad experience."],
-  ["Days 4–7", "First read. Creative OS flags what to scale, what is fatiguing, what to pause."],
-  ["Days 8–12", "Next batch in production, built from what the last one taught us."],
+  ["Days 1–3", "Launch the batch. Check tracking and delivery."],
+  ["Days 4–7", "First read. What to scale, what to pause."],
+  ["Days 8–12", "Next batch in production."],
   ["Repeat", "Every batch starts smarter than the one before."],
 ] as const;
 
 export const pricing = [
-  { name: "Creative Strategist", price: "$250", per: "per month, per channel", features: ["Performance Agent with Insights", "Creative Agent", "Creative Matrix (persona × creative type)", "Slack performance and creative reports"], promo: "Launch promo: your first four ads are included in month one.", primary: true },
+  { name: "Creative Strategist", price: "$250", per: "per month, per channel", features: ["Performance Agent with Insights", "Creative Agent", "Creative Matrix (persona × creative type)", "Slack performance and creative reports"], promo: "Launch promo: your first four ads are free.", primary: true },
   { name: "Creative Strategist + Creative Team", price: "$1,000", per: "per month, per channel", includes: "Includes 4 approved creatives", features: ["Everything in Creative Strategist", "One batch every month", "AI Editor + human editors make the ads", "$250 per ad"] },
   { name: "Creative Strategist + Creative Team, three batches", price: "$2,000", per: "per month, per channel", includes: "Includes 12 approved creatives", features: ["Everything in Creative Strategist", "Three batches every month", "AI Editor + human editors make and review", "$167 per ad"] },
 ];
 
 export const paths = [
-  { kicker: "Already on AppLovin", title: "Connect your account.", copy: "Connect your AppLovin account and your brand. Creative OS reads what is working, and your first four ads start this month.", cta: "Start onboarding", href: links.onboarding, primary: true },
-  { kicker: "New to AppLovin", title: "Launch with us.", copy: "Bring your brand. We set up the AppLovin account with you, and Creative OS plans the first creative before you spend.", cta: "Launch on AppLovin", href: links.newBrand },
-  { kicker: "Want to see it first", title: "Book a demo.", copy: "Twenty minutes with the team. We walk through Creative OS on a live account and answer the hard questions.", cta: "Book a demo", href: links.demo },
+  { kicker: "Already on AppLovin", title: "Connect your account.", copy: "Connect your AppLovin account and your brand. Your first four ads start this month.", cta: "Start onboarding", href: links.onboarding, primary: true },
+  { kicker: "New to AppLovin", title: "Launch with us.", copy: "Bring your brand. We set up AppLovin with you and plan the first creative before you spend.", cta: "Launch on AppLovin", href: links.newBrand },
+  { kicker: "Want to see it first", title: "Book a demo.", copy: "Twenty minutes with the team, on a live account.", cta: "Book a demo", href: links.demo },
 ];
 
 export const faq = [
-  ["What is Creative OS?", "Upscale's AI Creative Strategist for AppLovin. It learns your brand, reads your AppLovin performance, explains why creative is working, and turns that into new briefs and ads."],
-  ["Do you run our media?", "No. You keep your AppLovin account, campaigns and budget. Creative OS plans and makes creative. You approve and launch."],
-  ["Who makes the ads?", "An AI Editor and our human editors, using Creative OS. Every brief and every finished ad comes back to you for approval before delivery."],
-  ["What do you need from us?", "Your brand's site and access to your AppLovin account. New to AppLovin? Choose that path and we set it up with you."],
+  ["What is Creative OS?", "Upscale's AI Creative Strategist for AppLovin. It reads your results, explains what works, and turns that into briefs and ads."],
+  ["Do you run our media?", "No. You keep your account, campaigns and budget. We plan and make the creative. You approve and launch."],
+  ["Who makes the ads?", "An AI Editor and our human editors. You approve every brief and every ad."],
+  ["What do you need from us?", "Your site and access to your AppLovin account. New to AppLovin? We set it up with you."],
   ["How fast can we start?", "Onboarding takes minutes. Your first four ads are made in month one."],
 ] as const;
 
@@ -158,16 +158,16 @@ export type Variant = {
 };
 
 export const variants: Variant[] = [
-  { n: 1, slug: "product-led", name: "Product-led", kicker: "Introducing", headline: "Creative OS for AppLovin", sub: "Upscale's AI Creative Strategist reads your AppLovin results, explains why each ad performed, and turns that into the next ads to make.", lead: showcase[0] },
-  { n: 2, slug: "pain-led", name: "Pain-led", kicker: "The creative bottleneck", headline: "Your AppLovin creative is running out.", sub: "AppLovin needs a steady supply of new creative and a clear read on what is driving results. Creative OS keeps four new ads moving every 10 to 14 days, built from what your last batch taught it.", lead: showcase[1] },
-  { n: 3, slug: "outcome-led", name: "Outcome-led", kicker: "The outcome", headline: "80% of daily AppLovin spend, on creative that works.", sub: "That is where Latico Leathers landed after six batches from Creative OS and our Creative Team. Start with four ads, free, and see what the account does.", lead: showcase[0] },
-  { n: 4, slug: "workflow-led", name: "Workflow-led", kicker: "One loop", headline: "From your AppLovin data to your next four ads.", sub: "Run creative, learn what works, make better creative, repeat. The Performance Agent reads the results, the Creative Agent drafts the briefs, and an AI Editor with our human editors makes the ads.", lead: showcase[2] },
-  { n: 5, slug: "proof-led", name: "Proof-led", kicker: "What wins on AppLovin", headline: "Creator demos win. Discount-led ads are the floor.", sub: "From a frame-by-frame teardown of 58 AppLovin creatives: 1.57% CTR for polished creator demos against 0.63% for discount-led. Creative OS finds that pattern in your account, then makes the ads.", lead: showcase[0] },
-  { n: 6, slug: "customer-branch", name: "Branch", customer: "Branch", kicker: "Made for Branch", headline: "Branch, meet your next four AppLovin ads.", sub: "Creative OS reads what is already working for Branch, writes the briefs, and our Creative Team makes four AppLovin ads in the first month, free.", lead: customerCreatives.branch },
-  { n: 7, slug: "customer-david-protein", name: "David Protein", customer: "David Protein", kicker: "Made for David Protein", headline: "David, meet your next four AppLovin ads.", sub: "Creative OS reads what is already working for David Protein, writes the briefs, and our Creative Team makes four AppLovin ads in the first month, free.", lead: customerCreatives["david-protein"] },
-  { n: 8, slug: "customer-fast-growing-trees", name: "Fast Growing Trees", customer: "Fast Growing Trees", kicker: "Made for Fast Growing Trees", headline: "Fast Growing Trees, meet your next four AppLovin ads.", sub: "Creative OS reads what is already working for Fast Growing Trees, writes the briefs, and our Creative Team makes four AppLovin ads in the first month, free.", lead: customerCreatives["fast-growing-trees"] },
-  { n: 9, slug: "customer-jones-road", name: "Jones Road", customer: "Jones Road Beauty", kicker: "Made for Jones Road", headline: "Jones Road, meet your next four AppLovin ads.", sub: "Jones Road Beauty is already live on AppLovin with Upscale creative. Creative OS reads what is working, writes the next briefs, and our Creative Team makes the next four, free.", lead: customerCreatives["jones-road"] },
-  { n: 10, slug: "customer-once-upon-a-farm", name: "Once Upon a Farm", customer: "Once Upon a Farm", kicker: "Made for Once Upon a Farm", headline: "Once Upon a Farm, meet your next four AppLovin ads.", sub: "Once Upon a Farm is already live on AppLovin with Upscale creative. Creative OS reads what is working, writes the next briefs, and our Creative Team makes the next four, free.", lead: customerCreatives["once-upon-a-farm"] },
+  { n: 1, slug: "product-led", name: "Product-led", kicker: "Introducing", headline: "Creative OS for AppLovin", sub: "It reads your AppLovin results, explains why each ad worked, and makes the next ones.", lead: showcase[0] },
+  { n: 2, slug: "pain-led", name: "Pain-led", kicker: "The creative bottleneck", headline: "Your AppLovin creative is running out.", sub: "AppLovin needs new creative all the time. Creative OS keeps four new ads coming every 10 to 14 days, built from what your last batch taught it.", lead: showcase[1] },
+  { n: 3, slug: "outcome-led", name: "Outcome-led", kicker: "The outcome", headline: "80% of daily AppLovin spend, on creative that works.", sub: "That is where Latico Leathers landed after six batches. Start with four ads, free.", lead: showcase[0] },
+  { n: 4, slug: "workflow-led", name: "Workflow-led", kicker: "One loop", headline: "From your AppLovin data to your next four ads.", sub: "Run creative. Learn what works. Make better creative. Repeat. The Performance Agent reads results, the Creative Agent writes briefs, and our editors make the ads.", lead: showcase[2] },
+  { n: 5, slug: "proof-led", name: "Proof-led", kicker: "What wins on AppLovin", headline: "Creator demos win. Discount-led ads are the floor.", sub: "In a teardown of 58 AppLovin ads, polished creator demos got 1.57% CTR. Discount-led ads got 0.63%. Creative OS finds what wins in your account, then makes it.", lead: showcase[0] },
+  { n: 6, slug: "customer-branch", name: "Branch", customer: "Branch", kicker: "Made for Branch", headline: "Branch, meet your next four AppLovin ads.", sub: "Creative OS reads what already works for Branch, writes the briefs, and our team makes four AppLovin ads in month one, free.", lead: customerCreatives.branch },
+  { n: 7, slug: "customer-david-protein", name: "David Protein", customer: "David Protein", kicker: "Made for David Protein", headline: "David, meet your next four AppLovin ads.", sub: "Creative OS reads what already works for David Protein, writes the briefs, and our team makes four AppLovin ads in month one, free.", lead: customerCreatives["david-protein"] },
+  { n: 8, slug: "customer-fast-growing-trees", name: "Fast Growing Trees", customer: "Fast Growing Trees", kicker: "Made for Fast Growing Trees", headline: "Fast Growing Trees, meet your next four AppLovin ads.", sub: "Creative OS reads what already works for Fast Growing Trees, writes the briefs, and our team makes four AppLovin ads in month one, free.", lead: customerCreatives["fast-growing-trees"] },
+  { n: 9, slug: "customer-jones-road", name: "Jones Road", customer: "Jones Road Beauty", kicker: "Made for Jones Road", headline: "Jones Road, meet your next four AppLovin ads.", sub: "Jones Road Beauty is already live on AppLovin with Upscale creative. The next four ads are free.", lead: customerCreatives["jones-road"] },
+  { n: 10, slug: "customer-once-upon-a-farm", name: "Once Upon a Farm", customer: "Once Upon a Farm", kicker: "Made for Once Upon a Farm", headline: "Once Upon a Farm, meet your next four AppLovin ads.", sub: "Once Upon a Farm is already live on AppLovin with Upscale creative. The next four ads are free.", lead: customerCreatives["once-upon-a-farm"] },
 ];
 
 export const getVariant = (n: number) => {
@@ -181,41 +181,41 @@ export const getVariant = (n: number) => {
 export type Page = "landing" | "formats" | "creative-os" | "customers";
 
 export const pages: Record<Exclude<Page, "landing">, { path: string; kicker: string; title: string; value: string; what: string }> = {
-  formats: { path: "/mobile-formats", kicker: "AppLovin best practices", title: "Formats", value: "Seven creative types, ranked by what actually clicks on AppLovin.", what: "From a frame-by-frame teardown of 58 AppLovin creatives and Upscale's AppLovin best-practices guide. Creative OS finds these patterns in your account, then makes the ads." },
-  "creative-os": { path: "/mobile-creative-os", kicker: "The product", title: "Creative OS", value: "Upscale's AI Creative Strategist for AppLovin. Two agents, one map, and the editors who make the ads.", what: "It reads your AppLovin results, explains why each ad performed, writes the next briefs, and maps your personas against creative types so you can see where the gaps are." },
-  customers: { path: "/mobile-customers", kicker: "Customers", title: "Made for AppLovin.", value: "21 creatives across 9 brands, all vertical, captioned, built for sound off, with the offer in the last five seconds.", what: "Every one was made by our Creative Team with Creative OS for AppLovin. Tap any card to play." },
+  formats: { path: "/mobile-formats", kicker: "AppLovin best practices", title: "Formats", value: "Seven creative types, ranked by what clicks on AppLovin.", what: "From a teardown of 58 AppLovin ads and our best-practices guide." },
+  "creative-os": { path: "/mobile-creative-os", kicker: "The product", title: "Creative OS", value: "Upscale's AI Creative Strategist for AppLovin.", what: "It reads your results, writes the briefs, and shows where your strategy has gaps. Then our editors make the ads." },
+  customers: { path: "/mobile-customers", kicker: "Customers", title: "Made for AppLovin.", value: "21 creatives, 9 brands, all made for AppLovin.", what: "Vertical, captioned, built for sound off. Tap any card to play." },
 };
 
 // Creative types from the Latico teardown (58 creatives, weighted CTR vs a 1.09% account benchmark).
 export const formats: { name: string; ctr: number; what: string; rule: string; example?: string }[] = [
-  { name: "Creator demo (polished)", ctr: 1.57, what: "One real creator talking to camera, demoing the product, with a clean edit.", rule: "Question or curiosity-gap hook in the first two seconds, high-contrast product in the opening frames, a specific use-case moment, and give the demo room: about 45 seconds.", example: "latico-leathers" },
-  { name: "Captioned creator", ctr: 1.16, what: "Creator to camera with bold kinetic captions carrying the message sound-off.", rule: "Captions with hierarchy, never a dense paragraph. Most viewers watch muted.", example: "jones-road-beauty" },
-  { name: "Unboxing / packing", ctr: 1.15, what: "In-situ unboxing or packing the product, long-form.", rule: "Curiosity carries the first half; the long demo earns the click." },
-  { name: "Evergreen studio", ctr: 1.13, what: "The workhorse: studio product demo with a feature-to-benefit structure.", rule: "Reliable at scale. Close with proof, not a discount." },
-  { name: "UGC creator", ctr: 1.03, what: "Selfie-style creator content, high variance.", rule: "Wins when the creator has one strong single-feature hook; loses when the sign-off is weak." },
-  { name: "Produced montage", ctr: 0.97, what: "Agency-style montage with music, press logos and mixed settings.", rule: "Reads as an ad. Over-production dilutes the native feel." },
-  { name: "Discount-led sale", ctr: 0.63, what: "The offer as the hook.", rule: "The account floor. Keep the offer on the end card; never make the discount the hook." },
+  { name: "Creator demo (polished)", ctr: 1.57, what: "One real creator on camera, showing the product.", rule: "Open with a question. Show the product in the first frames. Give the demo about 45 seconds.", example: "latico-leathers" },
+  { name: "Captioned creator", ctr: 1.16, what: "Creator on camera with bold captions.", rule: "Big, short captions. Most people watch muted.", example: "jones-road-beauty" },
+  { name: "Unboxing / packing", ctr: 1.15, what: "Unboxing or packing the product, at length.", rule: "Curiosity carries the first half. The long demo earns the click." },
+  { name: "Evergreen studio", ctr: 1.13, what: "The studio product demo. Feature, then benefit.", rule: "Reliable at scale. Close with proof, not a discount." },
+  { name: "UGC creator", ctr: 1.03, what: "Selfie-style creator content. Results vary.", rule: "Wins with one strong hook. Loses with a weak sign-off." },
+  { name: "Produced montage", ctr: 0.97, what: "Montage with music and press logos.", rule: "Reads as an ad. Less polish works better." },
+  { name: "Discount-led sale", ctr: 0.63, what: "The discount as the hook.", rule: "The floor. Keep the offer on the end card." },
 ];
 
 export const winningDna = [
-  "One real creator talking to camera, demoing the product. Creator beats polished montage beats no human.",
-  "A question or curiosity-gap hook in the first two seconds. Open a loop, never a feature or a price.",
-  "High-contrast product in the opening frames: the thumb-stop.",
-  "Bold kinetic captions with hierarchy, never a dense paragraph.",
-  "A specific use-case moment beats a feature list.",
-  "Give the demo room. Longer creator demos beat 26 to 30 second montages.",
-  "Proof as the closer: reviews, the award, the number.",
+  "One real creator on camera, showing the product.",
+  "A question in the first two seconds. Never a feature or a price.",
+  "The product, in high contrast, in the first frames.",
+  "Big, short captions. Never a paragraph.",
+  "One real use-case moment beats a feature list.",
+  "Give the demo room. 45 seconds beats 30.",
+  "Close with proof: reviews, the award, the number.",
 ] as const;
 
 export const losingDna = [
-  "No human, music-only product montage.",
-  "Over-produced agency montage with press logos as the whole creative.",
-  "Dense caption paragraphs, unreadable sound-off.",
-  "Compressing the cut to 26 to 30 seconds.",
-  "Discount as the hook. Dedicated sale creatives are the floor.",
+  "No person, just music and product.",
+  "Press logos and polish as the whole ad.",
+  "Caption paragraphs nobody can read muted.",
+  "Cutting the ad down to 30 seconds.",
+  "The discount as the hook.",
 ] as const;
 
-export const attentionRule = "On AppLovin the viewer is most locked in at the end, right as the close button appears. Put the offer, the proof and the button in the final five seconds.";
+export const attentionRule = "Viewers are most locked in right before the close button appears. Put the offer, the proof and the button in the last five seconds.";
 
 export const showcaseAll = [
   { brand: "Latico Leathers", slug: "latico-leathers", posters: [`${MEDIA}/showcase-9x16/latico-leathers-1.jpg`, `${MEDIA}/showcase-9x16/latico-leathers-2.jpg`, `${MEDIA}/showcase-9x16/latico-leathers-3.jpg`, `${MEDIA}/showcase-9x16/latico-leathers.jpg`], video: `${MEDIA}/videos/latico-leathers.mp4` },
