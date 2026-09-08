@@ -13,9 +13,9 @@ export const links = {
   bestPractices: "https://storage.googleapis.com/upscale-creative-kalshi/applovin/Upscale_AppLovin_Best_Practices_Guide.pdf",
 };
 
-export const offer = "Sign up and our Creative Team will use Creative OS to make you 4 new high-performance AppLovin ads, included in your first batch.";
+export const offer = "Sign up and our Creative Team will use Creative OS to make your first batch of AppLovin ads, included in your first month.";
 // Icon-format hero lines: value, what we do, risk reversal.
-export const heroValue = "Four new AppLovin ads, included in your first batch. From $250 a month.";
+export const heroValue = "One batch of AppLovin ads, included in your first month. From $250 a month.";
 export const heroWhat = "Creative OS reads your AppLovin results, writes the briefs, and our editors make the ads.";
 export const heroRisk = "You approve every brief and every ad. New ads every 10 to 14 days. You keep your account and your budget.";
 export const promise = "Understand what's working. Find what's missing. Make what wins next.";
@@ -94,12 +94,12 @@ export const process = [
   ["Creative OS reads your results", "It explains why each ad performed and what to make next."],
   ["Briefs are drafted", "The Creative Agent writes the next briefs from what works."],
   ["You approve the briefs", "Nothing gets made until you say so."],
-  ["The ads get made", "Our editors make four AppLovin ads. They come as one batch."],
+  ["The ads get made", "Our editors make four AppLovin ads. The first batch is included in your first month."],
   ["You approve and launch", "You approve every ad before it goes live. Then a new batch every 10 to 14 days."],
 ] as const;
 
 export const riskFree = [
-  ["Four ads per batch", "Your first batch includes four approved ads."],
+  ["First batch included", "One batch of four ads is included in your first month."],
   ["You approve everything", "Every brief and every ad."],
   ["You keep your account", "Your campaigns and budget stay yours."],
   ["Month to month", "Per channel. Add the team when you want the ads made."],
@@ -114,7 +114,7 @@ export const compare = {
     ["Persona × creative-type map of your strategy", "✓", "—", "—"],
     ["New batch of four ads every 10 to 14 days", "✓", "Varies", "Varies"],
     ["You approve every brief and every ad", "✓", "Varies", "✓"],
-    ["Four ads in the first batch", "✓", "—", "—"],
+    ["One batch included in month one", "✓", "—", "—"],
     ["Starts at", "$250/mo", "Retainer", "Headcount"],
   ],
 };
@@ -127,7 +127,7 @@ export const calendar = [
 ] as const;
 
 export const pricing = [
-  { name: "Creative Strategist", price: "$250", per: "per month, per channel", features: ["Performance Agent with Insights", "Creative Agent", "Creative Matrix (persona × creative type)", "Slack performance and creative reports"], promo: "Add the Creative Team to get your first batch of four ads made.", primary: true },
+  { name: "Creative Strategist", price: "$250", per: "per month, per channel", features: ["Performance Agent with Insights", "Creative Agent", "Creative Matrix (persona × creative type)", "Slack performance and creative reports"], promo: "Launch promo: one batch of ads is included in your first month.", primary: true },
   { name: "Creative Strategist + Creative Team", price: "$1,000", per: "per month, per channel", includes: "Includes 4 approved creatives", features: ["Everything in Creative Strategist", "One batch every month", "AI Editor + human editors make the ads", "$250 per ad"] },
   { name: "Creative Strategist + Creative Team, three batches", price: "$2,000", per: "per month, per channel", includes: "Includes 12 approved creatives", features: ["Everything in Creative Strategist", "Three batches every month", "AI Editor + human editors make and review", "$167 per ad"] },
 ];
@@ -143,7 +143,7 @@ export const faq = [
   ["Do you run our media?", "No. You keep your account, campaigns and budget. We plan and make the creative. You approve and launch."],
   ["Who makes the ads?", "An AI Editor and our human editors. You approve every brief and every ad."],
   ["What do you need from us?", "Your site and access to your AppLovin account. New to AppLovin? We set it up with you."],
-  ["How fast can we start?", "Onboarding takes minutes. Your first batch of four ads follows."],
+  ["How fast can we start?", "Onboarding takes minutes. Your first batch of ads is included in your first month."],
 ] as const;
 
 export type Variant = {
@@ -160,14 +160,14 @@ export type Variant = {
 export const variants: Variant[] = [
   { n: 1, slug: "product-led", name: "Product-led", kicker: "Introducing", headline: "Creative OS for AppLovin", sub: "It reads your AppLovin results, explains why each ad worked, and makes the next ones.", lead: showcase[0] },
   { n: 2, slug: "pain-led", name: "Pain-led", kicker: "The creative bottleneck", headline: "Your AppLovin creative is running out.", sub: "AppLovin needs new creative all the time. Creative OS keeps four new ads coming every 10 to 14 days, built from what your last batch taught it.", lead: showcase[1] },
-  { n: 3, slug: "outcome-led", name: "Outcome-led", kicker: "The outcome", headline: "80% of daily AppLovin spend, on creative that works.", sub: "That is where Latico Leathers landed after six batches. Start with your first batch of four.", lead: showcase[0] },
+  { n: 3, slug: "outcome-led", name: "Outcome-led", kicker: "The outcome", headline: "80% of daily AppLovin spend, on creative that works.", sub: "That is where Latico Leathers landed after six batches. Your first batch is included in month one.", lead: showcase[0] },
   { n: 4, slug: "workflow-led", name: "Workflow-led", kicker: "One loop", headline: "From your AppLovin data to your next four ads.", sub: "Run creative. Learn what works. Make better creative. Repeat. The Performance Agent reads results, the Creative Agent writes briefs, and our editors make the ads.", lead: showcase[2] },
   { n: 5, slug: "proof-led", name: "Proof-led", kicker: "What wins on AppLovin", headline: "Creator demos win. Discount-led ads are the floor.", sub: "In a teardown of 58 AppLovin ads, polished creator demos got 1.57% CTR. Discount-led ads got 0.63%. Creative OS finds what wins in your account, then makes it.", lead: showcase[0] },
-  { n: 6, slug: "customer-branch", name: "Branch", customer: "Branch", kicker: "Made for Branch", headline: "Branch, meet your next four AppLovin ads.", sub: "Creative OS reads what already works for Branch, writes the briefs, and our team makes four AppLovin ads in your first batch.", lead: customerCreatives.branch },
-  { n: 7, slug: "customer-david-protein", name: "David Protein", customer: "David Protein", kicker: "Made for David Protein", headline: "David, meet your next four AppLovin ads.", sub: "Creative OS reads what already works for David Protein, writes the briefs, and our team makes four AppLovin ads in your first batch.", lead: customerCreatives["david-protein"] },
-  { n: 8, slug: "customer-fast-growing-trees", name: "Fast Growing Trees", customer: "Fast Growing Trees", kicker: "Made for Fast Growing Trees", headline: "Fast Growing Trees, meet your next four AppLovin ads.", sub: "Creative OS reads what already works for Fast Growing Trees, writes the briefs, and our team makes four AppLovin ads in your first batch.", lead: customerCreatives["fast-growing-trees"] },
-  { n: 9, slug: "customer-jones-road", name: "Jones Road", customer: "Jones Road Beauty", kicker: "Made for Jones Road", headline: "Jones Road, meet your next four AppLovin ads.", sub: "Jones Road Beauty is already live on AppLovin with Upscale creative. The next four come as one batch.", lead: customerCreatives["jones-road"] },
-  { n: 10, slug: "customer-once-upon-a-farm", name: "Once Upon a Farm", customer: "Once Upon a Farm", kicker: "Made for Once Upon a Farm", headline: "Once Upon a Farm, meet your next four AppLovin ads.", sub: "Once Upon a Farm is already live on AppLovin with Upscale creative. The next four come as one batch.", lead: customerCreatives["once-upon-a-farm"] },
+  { n: 6, slug: "customer-branch", name: "Branch", customer: "Branch", kicker: "Made for Branch", headline: "Branch, meet your next four AppLovin ads.", sub: "Creative OS reads what already works for Branch, writes the briefs, and our team makes your first batch of four AppLovin ads, included in your first month.", lead: customerCreatives.branch },
+  { n: 7, slug: "customer-david-protein", name: "David Protein", customer: "David Protein", kicker: "Made for David Protein", headline: "David, meet your next four AppLovin ads.", sub: "Creative OS reads what already works for David Protein, writes the briefs, and our team makes your first batch of four AppLovin ads, included in your first month.", lead: customerCreatives["david-protein"] },
+  { n: 8, slug: "customer-fast-growing-trees", name: "Fast Growing Trees", customer: "Fast Growing Trees", kicker: "Made for Fast Growing Trees", headline: "Fast Growing Trees, meet your next four AppLovin ads.", sub: "Creative OS reads what already works for Fast Growing Trees, writes the briefs, and our team makes your first batch of four AppLovin ads, included in your first month.", lead: customerCreatives["fast-growing-trees"] },
+  { n: 9, slug: "customer-jones-road", name: "Jones Road", customer: "Jones Road Beauty", kicker: "Made for Jones Road", headline: "Jones Road, meet your next four AppLovin ads.", sub: "Jones Road Beauty is already live on AppLovin with Upscale creative. The next batch is included in your first month.", lead: customerCreatives["jones-road"] },
+  { n: 10, slug: "customer-once-upon-a-farm", name: "Once Upon a Farm", customer: "Once Upon a Farm", kicker: "Made for Once Upon a Farm", headline: "Once Upon a Farm, meet your next four AppLovin ads.", sub: "Once Upon a Farm is already live on AppLovin with Upscale creative. The next batch is included in your first month.", lead: customerCreatives["once-upon-a-farm"] },
 ];
 
 export const getVariant = (n: number) => {
@@ -233,7 +233,7 @@ export const explore = [
   { label: "Formats", sub: "AppLovin best practices and examples", href: "/mobile-formats" },
   { label: "Creative OS", sub: "The product: two agents and one map", href: "/mobile-creative-os" },
   { label: "Customers", sub: "The 9:16 showcase, 21 creatives", href: "/mobile-customers" },
-  { label: "Pricing", sub: "From $250 a month, four ads per batch", href: "#pricing" },
+  { label: "Pricing", sub: "From $250 a month, first batch included", href: "#pricing" },
   { label: "Get started", sub: "Connect your account or launch with us", href: "#start" },
   { label: "Book a demo", sub: "Twenty minutes on a live account", href: "https://calendly.com/kevin-tvads/applovin-creative-os-demo" },
 ] as const;

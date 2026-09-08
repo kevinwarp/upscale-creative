@@ -356,7 +356,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>Get started</Kicker>
           <H2>Get your first four AppLovin ads.</H2>
-          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Four new AppLovin ads in your first batch. Pick the path that fits.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>One batch of AppLovin ads is included in your first month. Pick the path that fits.</p>
           <div className="mt-4 grid gap-3">
             {paths.map((p) => (
               <a key={p.kicker} href={p.href} target="_blank" rel="noopener noreferrer" className={`block rounded-2xl border p-4 ${p.primary ? "border-[#831f80]" : ""} ${t.card}`}>
@@ -416,7 +416,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
       {/* Sticky CTA */}
       <div className={`fixed inset-x-0 bottom-0 z-40 border-t backdrop-blur ${t.bar}`} style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
         <div className="mx-auto flex max-w-[480px] items-center gap-3 px-4 py-2.5">
-          <p className="min-w-0 flex-1 text-[13px] font-semibold leading-4"><span className="block">Four AppLovin ads in your first batch.</span><span className={`block text-[11px] font-normal ${t.muted}`}>Made by our team with Creative OS.</span></p>
+          <p className="min-w-0 flex-1 text-[13px] font-semibold leading-4"><span className="block">One batch of ads included in your first month.</span><span className={`block text-[11px] font-normal ${t.muted}`}>Made by our team with Creative OS.</span></p>
           <a className="shrink-0 rounded-xl bg-[#831f80] px-4 py-2.5 text-[14px] font-semibold text-white" href={links.onboarding} target="_blank" rel="noopener noreferrer">Get started</a>
         </div>
       </div>
