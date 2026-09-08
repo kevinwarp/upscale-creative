@@ -58,9 +58,9 @@ export const applovinLogos = ["quince", "prose", "wayfair", "caraway", "hexclad"
 
 export const sequence = [
   ["Mid-game", "A level ends. The player chooses to watch an ad for a bonus."],
-  ["Portrait video", "Full screen, 9:16, up to 60 seconds. The first five cannot be skipped."],
-  ["Playable", "The shopper taps, picks and plays."],
-  ["End card", "Product, offer, one button."],
+  ["Portrait video", "Full screen, 9:16, 60 seconds. Skippable after the first five."],
+  ["Playable", "12 seconds. The shopper taps, picks and plays."],
+  ["End card", "3 seconds. Product, offer, one button."],
   ["Back to the game", "A short countdown, then play resumes."],
 ] as const;
 
@@ -102,7 +102,7 @@ export const riskFree = [
   ["First batch included", "One batch of four ads is included in your first month."],
   ["You approve everything", "Every brief and every ad."],
   ["You keep your account", "Your campaigns and budget stay yours."],
-  ["Month to month", "Per channel. Add the team when you want the ads made."],
+  ["Month to month", "Add the team when you want the ads made."],
 ] as const;
 
 // Generic comparison, no competitor names (public-content rule).
@@ -127,9 +127,9 @@ export const calendar = [
 ] as const;
 
 export const pricing = [
-  { name: "Creative Strategist", price: "$250", per: "per month, per channel", features: ["Performance Agent with Insights", "Creative Agent", "Creative Matrix (persona × creative type)", "Slack performance and creative reports"], promo: "Launch promo: one batch of ads is included in your first month.", primary: true },
-  { name: "Creative Strategist + Creative Team", price: "$1,000", per: "per month, per channel", includes: "Includes 4 approved creatives", features: ["Everything in Creative Strategist", "One batch every month", "AI Editor + human editors make the ads", "$250 per ad"] },
-  { name: "Creative Strategist + Creative Team, three batches", price: "$2,000", per: "per month, per channel", includes: "Includes 12 approved creatives", features: ["Everything in Creative Strategist", "Three batches every month", "AI Editor + human editors make and review", "$167 per ad"] },
+  { name: "Creative Strategist", price: "$250", per: "per month", features: ["Performance Agent with Insights", "Creative Agent", "Creative Matrix (persona × creative type)", "Slack performance and creative reports"], promo: "Launch promo: one batch of ads is included in your first month.", primary: true },
+  { name: "Creative Strategist + Creative Team", price: "$1,000", per: "per month", includes: "Includes 4 approved creatives", features: ["Everything in Creative Strategist", "One batch every month", "AI Editor + human editors make the ads", "$250 per ad"] },
+  { name: "Creative Strategist + Creative Team, three batches", price: "$2,000", per: "per month", includes: "Includes 12 approved creatives", features: ["Everything in Creative Strategist", "Three batches every month", "AI Editor + human editors make and review", "$167 per ad"] },
 ];
 
 export const paths = [

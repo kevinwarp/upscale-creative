@@ -186,7 +186,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>How AppLovin ads work</Kicker>
           <H2>The ad is a sequence, not a clip.</H2>
-          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Your ad sits between game levels. You get 30 seconds or more, in connected parts. Tell one story.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Your ad sits between game levels. The AppLovin ad experience is 75 seconds: a 60-second video, a 12-second playable, a 3-second end card. Tell one story.</p>
           <Rail ariaLabel="The AppLovin ad sequence">
             {sequence.map(([tt, d], i) => (
               <div key={tt} className={`w-[70%] shrink-0 snap-start rounded-2xl border p-4 ${t.card}`}>
