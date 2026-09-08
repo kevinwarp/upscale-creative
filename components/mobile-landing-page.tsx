@@ -50,7 +50,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
           <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>{n === 1 ? heroWhat : v.sub}</p>
           <p className={`mt-2 text-[15px] leading-6 ${t.muted}`}>{heroRisk}</p>
           <div className="mt-5 grid gap-2.5">
-            <Cta t={t} href={links.onboarding}><span className="grid size-5 place-items-center rounded-full border-2 border-white/80"><span className="size-2 rounded-full bg-white" /></span>Get started free</Cta>
+            <Cta t={t} href={links.onboarding}><span className="grid size-5 place-items-center rounded-full border-2 border-white/80"><span className="size-2 rounded-full bg-white" /></span>Get started</Cta>
             <Cta t={t} href={links.demo} ghost><svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3.5" /><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 8v6M14 11h6" /></svg>Book a demo</Cta>
           </div>
           <div className="mt-4 grid grid-cols-2 gap-3">
@@ -85,7 +85,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
             <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>{pg.what}</p>
             <p className={`mt-2 text-[15px] leading-6 ${t.muted}`}>{heroRisk}</p>
             <div className="mt-5 grid gap-2.5">
-              <Cta t={t} href={links.onboarding}><span className="grid size-5 place-items-center rounded-full border-2 border-white/80"><span className="size-2 rounded-full bg-white" /></span>Get started free</Cta>
+              <Cta t={t} href={links.onboarding}><span className="grid size-5 place-items-center rounded-full border-2 border-white/80"><span className="size-2 rounded-full bg-white" /></span>Get started</Cta>
               <Cta t={t} href={links.demo} ghost>Book a demo</Cta>
             </div>
           </div>
@@ -296,7 +296,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
           <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] opacity-80">Seen enough?</p>
           <H2>Get your first four AppLovin ads.</H2>
           <p className="mt-2 text-[14px] leading-6 opacity-80">{offer}</p>
-          <div className="mt-4 grid gap-2.5"><Cta t={t} href={links.onboarding}>Get started free</Cta><a className={`inline-flex w-full items-center justify-center rounded-2xl border px-5 py-4 text-[17px] font-semibold ${dark ? "border-[#021a20]/25" : "border-white/35"}`} href={links.demo} target="_blank" rel="noopener noreferrer">Book a demo</a></div>
+          <div className="mt-4 grid gap-2.5"><Cta t={t} href={links.onboarding}>Get started</Cta><a className={`inline-flex w-full items-center justify-center rounded-2xl border px-5 py-4 text-[17px] font-semibold ${dark ? "border-[#021a20]/25" : "border-white/35"}`} href={links.demo} target="_blank" rel="noopener noreferrer">Book a demo</a></div>
         </div>
       </section>
 
@@ -356,7 +356,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
         <div className="mx-auto max-w-[480px]">
           <Kicker t={t}>Get started</Kicker>
           <H2>Get your first four AppLovin ads.</H2>
-          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Four new AppLovin ads in your first month, free. Pick the path that fits.</p>
+          <p className={`mt-3 text-[15px] leading-6 ${t.muted}`}>Four new AppLovin ads in your first batch. Pick the path that fits.</p>
           <div className="mt-4 grid gap-3">
             {paths.map((p) => (
               <a key={p.kicker} href={p.href} target="_blank" rel="noopener noreferrer" className={`block rounded-2xl border p-4 ${p.primary ? "border-[#831f80]" : ""} ${t.card}`}>
@@ -404,7 +404,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
         <div className={`mx-auto max-w-[480px] rounded-2xl p-6 text-center ${t.inverse}`}>
           <h2 className="font-[family-name:var(--font-display)] text-[26px] font-semibold leading-[1.1] tracking-[-0.02em]">{promise}</h2>
           <p className="mt-3 text-[14px] leading-6 opacity-80">{offer}</p>
-          <div className="mt-4 grid gap-2.5"><Cta t={t} href={links.onboarding}>Get started free</Cta><a className={`inline-flex w-full items-center justify-center rounded-2xl border px-5 py-4 text-[17px] font-semibold ${dark ? "border-[#021a20]/25" : "border-white/35"}`} href={links.demo} target="_blank" rel="noopener noreferrer">Book a demo</a></div>
+          <div className="mt-4 grid gap-2.5"><Cta t={t} href={links.onboarding}>Get started</Cta><a className={`inline-flex w-full items-center justify-center rounded-2xl border px-5 py-4 text-[17px] font-semibold ${dark ? "border-[#021a20]/25" : "border-white/35"}`} href={links.demo} target="_blank" rel="noopener noreferrer">Book a demo</a></div>
         </div>
         <footer className={`mx-auto mt-8 max-w-[480px] text-center text-[11px] leading-5 ${t.muted}`}>
           <img alt="Upscale" className={`mx-auto mb-2 h-5 w-auto ${dark ? "brightness-0 invert" : ""}`} src="/customer-assets/upscale-wordmark.svg" width="136" height="35" />
@@ -416,7 +416,7 @@ export function MobileLandingPage({ n = 1, theme = "light", page = "landing" }: 
       {/* Sticky CTA */}
       <div className={`fixed inset-x-0 bottom-0 z-40 border-t backdrop-blur ${t.bar}`} style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
         <div className="mx-auto flex max-w-[480px] items-center gap-3 px-4 py-2.5">
-          <p className="min-w-0 flex-1 text-[13px] font-semibold leading-4"><span className="block">Four AppLovin ads in your first month, free.</span><span className={`block text-[11px] font-normal ${t.muted}`}>Made by our team with Creative OS.</span></p>
+          <p className="min-w-0 flex-1 text-[13px] font-semibold leading-4"><span className="block">Four AppLovin ads in your first batch.</span><span className={`block text-[11px] font-normal ${t.muted}`}>Made by our team with Creative OS.</span></p>
           <a className="shrink-0 rounded-xl bg-[#831f80] px-4 py-2.5 text-[14px] font-semibold text-white" href={links.onboarding} target="_blank" rel="noopener noreferrer">Get started</a>
         </div>
       </div>
